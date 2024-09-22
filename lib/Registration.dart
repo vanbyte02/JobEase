@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobease/WhoAreYou.dart';
 
 //Экран регистрации
 class Registration extends StatefulWidget {
@@ -15,11 +16,51 @@ class _RegistrationState extends State<Registration> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 23, 23, 31),
+      backgroundColor: const Color.fromARGB(255, 23, 23, 31),
    body: Center(
      child: Column(
       children: [
-        const SizedBox(height: 400),
+        const SizedBox(height: 110),
+        Padding( 
+            padding: const EdgeInsets.only(left:40, right:40), 
+              child: TextFormField(  
+                style: const TextStyle(fontSize: 16, 
+                  color: Colors.white),
+                decoration: const InputDecoration(  
+            labelText: 'Введите логин'), 
+          ), 
+        ),
+        const SizedBox(height: 10),
+        Padding( 
+            padding: const EdgeInsets.only(left:40, right:40), 
+              child: TextFormField(  
+                style: const TextStyle(fontSize: 16, 
+                  color: Colors.white),
+                decoration: const InputDecoration( 
+            labelText: 'Введите номер телефона'), 
+          ), 
+        ),
+        const SizedBox(height: 10),
+        Padding( 
+            padding: const EdgeInsets.only(left:40, right:40), 
+              child: TextFormField(  
+                style: const TextStyle(fontSize: 16, 
+                  color: Colors.white),
+                decoration: const InputDecoration(  
+            labelText: 'Введите пароль'), 
+          ), 
+        ),
+        const SizedBox(height: 10),
+        Padding( 
+            padding: const EdgeInsets.only(left:40, right:40), 
+              child: TextFormField(  
+                style: const TextStyle(fontSize: 16, 
+                  color: Colors.white),
+                decoration: const InputDecoration(  
+            labelText: 'Повторите пароль'), 
+          ), 
+        ),
+        const SizedBox(height: 100),
         SizedBox(
                 width: 145,
                 height: 45, 
@@ -31,39 +72,37 @@ class _RegistrationState extends State<Registration> {
                     ),
                   ),
                   child: const Text(
-                    'Войти',
-                    style: TextStyle(
-                    fontSize: 14, 
-                    color: Colors.black
-                    ),
-                   ),
-              onPressed: () {},
-                    ),
-                ),
-                 const SizedBox(height: 24),
-                SizedBox(
-                width: 145,
-                height: 45, 
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6), 
-                    ),
-                  ),
-                  child: const Text(
                     'Регистрация',
                     style: TextStyle(
                     fontSize: 14, 
                     color: Colors.black
                     ),
                    ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const WhoAreYou()
+                    ),
+                  );   
+                },
                     ),
                 ),
+        const SizedBox(height: 60),
+        const Text("Или зарегестироваться с помощью:",       
+        textAlign: TextAlign.center,            
+        style: TextStyle(color: Colors.white,   
+            fontSize: 12,                       
+        )),
+        //код осуществления входа с помощью других учеток
+        const SizedBox(height: 65),
+        const Text("Есть аккаунт? Войти!",       
+        textAlign: TextAlign.center,            
+        style: TextStyle(color: Colors.white,   
+            fontSize: 12,                       
+        ))
         ]
       )
     )
    );
   }
-}   
+}      

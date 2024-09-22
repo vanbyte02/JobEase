@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/Autorization.dart';
-import 'package:flutter_application_2/Registration.dart';
+import 'package:jobease/Autorization.dart';
+import 'package:jobease/Registration.dart';
 
 //Привественный экран
 class WelcomeScreen extends StatefulWidget {
