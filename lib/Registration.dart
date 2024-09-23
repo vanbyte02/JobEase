@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:jobease/Autorization.dart';
 import 'package:jobease/WhoAreYou.dart';
 
 //Экран регистрации
@@ -87,21 +89,38 @@ class _RegistrationState extends State<Registration> {
                 },
                     ),
                 ),
-        const SizedBox(height: 60),
+        const SizedBox(height: 30),
         const Text("Или зарегестироваться с помощью:",       
         textAlign: TextAlign.center,            
         style: TextStyle(color: Colors.white,   
             fontSize: 12,                       
         )),
         //код осуществления входа с помощью других учеток
-        const SizedBox(height: 65),
-        const Text("Есть аккаунт? Войти!",       
-        textAlign: TextAlign.center,            
+        const SizedBox(height: 80),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+          const Text("Есть аккаунт?",                   
         style: TextStyle(color: Colors.white,   
             fontSize: 12,                       
-        ))
-        ]
-      )
+        )
+        ),
+        
+        TextButton(
+         onPressed: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => const Autorization())),
+        child: const Text('Войти!',            
+        style: TextStyle(
+          color: Colors.white,  
+          fontWeight: FontWeight.w200,
+          fontStyle: FontStyle.italic,  
+          fontSize: 12,),
+              ),
+            )
+          ]
+        )
+      ]
+     )
     )
    );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobease/Registration.dart';
 import 'package:jobease/WhoAreYou.dart';
 
 //Экран авторизации
@@ -20,7 +21,7 @@ class _AutorizationState extends State<Autorization> {
    body: Center(
      child: Column(
       children: [
-        const SizedBox(height: 200),
+        const SizedBox(height: 100),
         Padding( 
             padding: const EdgeInsets.only(left:40, right:40), 
               child: TextFormField(  
@@ -71,16 +72,34 @@ class _AutorizationState extends State<Autorization> {
         const SizedBox(height: 50),
         const Text("Или войти с помощью:",       
         textAlign: TextAlign.center,            
-        style: TextStyle(color: Colors.white,   
+        style: TextStyle(color: Colors.white,    
             fontSize: 12,                       
         )),
         //код осуществления входа с помощью других учеток
-        const SizedBox(height: 80),
-        const Text("Нет аккаунта? Зарегестироваться!",       
-        textAlign: TextAlign.center,            
-        style: TextStyle(color: Colors.white,   
+        const SizedBox(height: 70),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Text("Нет аккаунта?",                   
+        style: TextStyle(color: Colors.white,
+        fontWeight: FontWeight.w400,  
             fontSize: 12,                       
-        ))
+        )
+        ),
+        
+        TextButton(
+         onPressed: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => const Registration())),
+        child: const Text('Зарегестрироваться!',            
+        style: TextStyle(
+          color: Colors.white, 
+          fontWeight: FontWeight.w200,
+          fontStyle: FontStyle.italic,   
+          fontSize: 12,),
+              ),
+            )
+          ]
+        )
         ]
       )
     )
