@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:jobease/Autorization.dart';
+//import 'package:jobease/Autorization.dart';
 import 'package:jobease/WhoAreYou.dart';
 
 //Экран регистрации
@@ -22,7 +23,16 @@ class _RegistrationState extends State<Registration> {
    body: Center(
      child: Column(
       children: [
-        const SizedBox(height: 110),
+        SizedBox(height: 100),
+         Text(
+                  'Регистрация',
+                  style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+        const SizedBox(height: 70),
         Padding( 
             padding: const EdgeInsets.only(left:40, right:40), 
               child: TextFormField(  
@@ -83,42 +93,44 @@ class _RegistrationState extends State<Registration> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const WhoAreYou()
+                  MaterialPageRoute(builder: (context) => const Autorization()
                     ),
                   );   
                 },
                     ),
                 ),
-        const SizedBox(height: 30),
-        const Text("Или зарегестироваться с помощью:",       
+        const SizedBox(height:50),
+        const Text("Или",       
         textAlign: TextAlign.center,            
         style: TextStyle(color: Colors.white,   
             fontSize: 12,                       
         )),
+
+
         //код осуществления входа с помощью других учеток
-        const SizedBox(height: 80),
+        const SizedBox(height:50),
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-          const Text("Есть аккаунт?",                   
-        style: TextStyle(color: Colors.white,   
-            fontSize: 12,                       
-        )
-        ),
-        
-        TextButton(
-         onPressed: () => Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => const Autorization())),
-        child: const Text('Войти!',            
-        style: TextStyle(
-          color: Colors.white,  
-          fontWeight: FontWeight.w200,
-          fontStyle: FontStyle.italic,  
-          fontSize: 12,),
-              ),
-            )
-          ]
-        )
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.g_mobiledata, size: 40),
+                      onPressed: () {
+                      },
+                    ),
+                    SizedBox(width: 20),
+                    IconButton(
+                      icon: Icon(Icons.apple, size: 40),
+                      onPressed: () {
+                      },
+                    ),
+                    SizedBox(width: 20),
+                    IconButton(
+                      icon: Icon(Icons.facebook, size: 40),
+                      onPressed: () {
+                      },
+                    ),
+                  ],
+                ),
       ]
      )
     )
