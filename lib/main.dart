@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'WelcomeScreen.dart';
-
+import 'package:jobease/Login/RegOrAut.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,11 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Цветочный магазин "Floral Fantasy"',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
-      home: WelcomeScreen(),
+      home: RegOrAut(),
     );
     
   }

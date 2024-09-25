@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-//Привественный экран
-class WelcomeScreen extends StatefulWidget {
+//Экран заполнения анкеты работодателя
+class Recruiter extends StatefulWidget {
  
-  const WelcomeScreen({super.key,});
+  const Recruiter({super.key,});
 
   @override
-  _WelcomeScreenState createState() => _WelcomeScreenState();
+  _RecruiterState createState() => _RecruiterState();
 }
 
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _RecruiterState extends State<Recruiter> {
   
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
      child: Column(
       children: [
         SizedBox(height: 300),
-        Text('ЛОГО',
+        Text('Работодатель',
         style: TextStyle(
         fontSize: 28,
         color: Colors.black)),

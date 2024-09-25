@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-//Привественный экран
-class WelcomeScreen extends StatefulWidget {
+//Экран с вакансиями
+class Vacancy extends StatefulWidget {
  
-  const WelcomeScreen({super.key,});
+  const Vacancy({super.key,});
 
   @override
-  _WelcomeScreenState createState() => _WelcomeScreenState();
+  _VacancyState createState() => _VacancyState();
 }
 
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _VacancyState extends State<Vacancy> {
   
   @override
   Widget build(BuildContext context) {
