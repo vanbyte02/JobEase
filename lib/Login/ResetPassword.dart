@@ -18,7 +18,7 @@ class _ResetPasswordState extends State<ResetPassword> {
   Widget build(BuildContext context) {
     return  MaterialApp(
       home:  Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color.fromARGB(255, 242, 242, 242),
         body:  Center(
           child: Padding(
             padding: const EdgeInsets.all(20),
@@ -48,7 +48,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                 height: 40, 
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                      backgroundColor:  const Color.fromARGB(255, 56, 255, 196),
+                      backgroundColor:  const Color.fromARGB(255, 74, 187, 80),
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6), 
                     ),

@@ -1,32 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:jobease/Description.dart';
+
 
 //Привественный экран
-class WelcomeScreen extends StatefulWidget {
- 
-  const WelcomeScreen({super.key,});
-
+class LogoScreen extends StatefulWidget {
   @override
-  _WelcomeScreenState createState() => _WelcomeScreenState();
+  _LogoScreenState createState() => _LogoScreenState();
 }
 
+class _LogoScreenState extends State<LogoScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _navigateToWelcomeScreen();
+  }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
-  
+  _navigateToWelcomeScreen() async {
+    await Future.delayed(Duration(seconds: 5));
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => Description()),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
-   body: Center(
-     child: Column(
-      children: [
-        SizedBox(height: 300),
-        Text('ЛОГО',
-        style: TextStyle(
-        fontSize: 28,
-        color: Colors.black)),
-        ]
-      )
-    )
-   );
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 242, 242, 242),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+             Container(
+              width: 80,
+              height: 80,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Color.fromARGB(255, 74, 187, 80),
+              ),
+              child: const Center(
+                child: Text(
+                  'EJ',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'EasyJob',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
-}   
+}

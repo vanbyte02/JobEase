@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Login/RegOrAut.dart';
+import 'package:jobease/WelcomeScreen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
-      home: RegOrAut(),
+      home: LogoScreen(),
     );
     
   }

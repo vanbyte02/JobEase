@@ -15,7 +15,7 @@ class _RecruiterState extends State<Recruiter> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      backgroundColor: Color.fromARGB(255, 242, 242, 242),
    body: Center(
      child: Column(
       children: [

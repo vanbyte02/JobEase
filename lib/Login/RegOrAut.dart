@@ -17,17 +17,50 @@ class _RegOrAutState extends State<RegOrAut> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 242, 242, 242),
    body: Center(
      child: Column(
       children: [
-        const SizedBox(height: 400),
+        const SizedBox(height: 200),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+             Container(
+              width: 80,
+              height: 80,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Color.fromARGB(255, 74, 187, 80),
+              ),
+              child: const Center(
+                child: Text(
+                  'EJ',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'EasyJob',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 100),
         SizedBox(
-                width: 145,
-                height: 45, 
+                width: 250,
+                height: 40, 
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 56, 255, 196),
+                      backgroundColor: const Color.fromARGB(255, 74, 187, 80),
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6), 
                     ),
@@ -50,11 +83,11 @@ class _RegOrAutState extends State<RegOrAut> {
                 ),
                  const SizedBox(height: 24),
                 SizedBox(
-                width: 145,
-                height: 45, 
+                width: 250,
+                height: 40, 
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: Color.fromARGB(255, 245, 240, 240),
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6), 
                     ),

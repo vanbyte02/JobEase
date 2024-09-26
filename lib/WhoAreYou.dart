@@ -14,7 +14,7 @@ class _WhoAreYouState extends State<WhoAreYou> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Colors.white,
+      backgroundColor:Color.fromARGB(255, 242, 242, 242),
       body: Center(
         child: Column(
           children: [
