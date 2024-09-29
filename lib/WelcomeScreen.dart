@@ -3,12 +3,12 @@ import 'package:jobease/Description.dart';
 
 
 //Привественный экран
-class LogoScreen extends StatefulWidget {
+class WelcomeScreen extends StatefulWidget {
   @override
-  _LogoScreenState createState() => _LogoScreenState();
+  _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _LogoScreenState extends State<LogoScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void initState() {
     super.initState();

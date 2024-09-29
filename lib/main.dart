@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobease/WelcomeScreen.dart';
+// import 'package:jobease/Employee/Vacancy.dart';
 
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
-      home: LogoScreen(),
+      home: WelcomeScreen(),
     );
     
   }

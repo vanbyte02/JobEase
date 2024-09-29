@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Employee.dart';
 import 'package:jobease/Employee/Saved.dart';
 
+
+final List<String> entries = <String>['Программист 1C', 'Программист Python', 'Программист C++', 'Программист C#'];
+
 //Экран с вакансиями
 class Vacancy extends StatefulWidget {
  
@@ -20,7 +23,7 @@ class _VacancyState extends State<Vacancy> {
    body:  Center(
      child: Column(
       children: [
-      const SizedBox(height: 30),
+      const SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -66,56 +69,67 @@ class _VacancyState extends State<Vacancy> {
                     fontWeight: FontWeight.bold,
                     ),
                   ),
-        const SizedBox(height: 30),
-         Container(
-            width: 340,
-            height: 250,
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 247, 247, 247),
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  spreadRadius: 3,
-                  blurRadius: 4,
+        const SizedBox(height: 20),
+         Expanded(
+          child: ListView.separated(
+    padding: const EdgeInsets.all(10),
+    itemCount: entries.length,
+    itemBuilder: (
+      BuildContext context, 
+      int index
+      ){
+      return Container(
+  decoration: BoxDecoration(
+    color: const Color.fromARGB(255, 247, 247, 247),
+    borderRadius: BorderRadius.circular(10),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withOpacity(0.1),
+        spreadRadius: 3,
+        blurRadius: 4,
+      ),
+    ],
+  ),
+  width: 340,
+  height: 250,
+  child: Stack(
+    children: [
+      Center(
+        child: Text('${entries[index]}'),
+      ),
+      Align(
+        alignment: Alignment.bottomCenter,
+        child: Container(
+          margin: const EdgeInsets.only(bottom: 10),
+          child: SizedBox(
+            width: 300,
+            height: 30,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 74, 187, 80),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
                 ),
-              ],
-            ),
-            child: Center(
-              child: Column(
-                children: [
-                  const Text(
-                    '',
-                    style: TextStyle(
-                      fontSize: 14, 
-                      color: Color.fromARGB(255, 91, 90, 94),
+              ),
+              child: const Text(
+                'Отозваться',
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
                     ),
                   ),
-                  const SizedBox(height: 190),
-                  SizedBox(
-                    width: 290,
-                    height: 30, 
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor:  const Color.fromARGB(255, 74, 187, 80),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30), 
-                        ),
-                      ),
-                      child: const Text(
-                        'Отозваться',
-                        style: TextStyle(
-                          fontSize: 16, 
-                          color: Colors.white
-                        ),
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
-                ],
+              onPressed: () {},
               ),
             ),
-          )
+          ),
+        ),
+      ],
+    ),
+  );
+},
+    separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 10),
+            ),
+          ) 
         ]
       )
     ),
