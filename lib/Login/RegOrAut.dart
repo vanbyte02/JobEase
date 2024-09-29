@@ -69,7 +69,7 @@ class _RegOrAutState extends State<RegOrAut> {
                     'Войти',
                     style: TextStyle(
                     fontSize: 14, 
-                    color: Colors.black
+                    color: Colors.white
                     ),
                    ),
               onPressed: () {

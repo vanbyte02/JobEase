@@ -80,7 +80,9 @@ class _AutorizationState extends State<Autorization> {
                       style: TextStyle(
                     fontSize: 12,
                     color:  Color.fromARGB(255, 88, 87, 91),
-                    fontWeight: FontWeight.bold,),),
+                    fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -99,7 +101,7 @@ class _AutorizationState extends State<Autorization> {
                     'Вход',
                     style: TextStyle(
                     fontSize: 14, 
-                    color: Colors.black
+                    color: Colors.white
                     ),
                    ),
               onPressed: () {

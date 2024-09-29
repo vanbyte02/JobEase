@@ -57,7 +57,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     'Восстановить',
                     style: TextStyle(
                     fontSize: 14, 
-                    color: Colors.black
+                    color: Colors.white
                     ),
                    ),
               onPressed: () => _dialogBuilder(context),

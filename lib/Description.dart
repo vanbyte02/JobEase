@@ -11,6 +11,18 @@ class Description extends StatefulWidget {
   _DescriptionState createState() => _DescriptionState();
 }
 
+
+class Photo{
+  final String image;
+  
+  Photo(this.image);
+}
+List<Photo> data = [
+  Photo(
+  "https://a.d-cd.net/CdQo0gyqC7LJ9RHAO-EMvMj4wYA-960.jpg",
+  )
+];
+
 class _DescriptionState extends State<Description> {
   @override
   Widget build(BuildContext context) {
@@ -79,15 +91,17 @@ class _DescriptionState extends State<Description> {
                   height: 40,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          const Color.fromARGB(255, 67, 160, 71),
+                      backgroundColor: const Color.fromARGB(255, 74, 187, 80),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6),
                       ),
                     ),
                     child: const Text(
                       'Дальше',
-                      style: TextStyle(fontSize: 14, color: Colors.black),
+                      style: TextStyle(
+                        fontSize: 14, 
+                        color:Colors.white
+                        ),
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -186,15 +200,17 @@ class _Description2State extends State<Description2> {
                   height: 40,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          const Color.fromARGB(255, 67, 160, 71),
+                      backgroundColor: const Color.fromARGB(255, 74, 187, 80),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6),
                       ),
                     ),
                     child: const Text(
                       'Дальше',
-                      style: TextStyle(fontSize: 14, color: Colors.black),
+                      style: TextStyle(
+                        fontSize: 14, 
+                        color:Colors.white
+                        ),
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -293,15 +309,17 @@ class _Description3State extends State<Description3> {
                   height: 40,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          const Color.fromARGB(255, 67, 160, 71),
+                      backgroundColor: const Color.fromARGB(255, 74, 187, 80),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6),
                       ),
                     ),
                     child: const Text(
                       'Дальше',
-                      style: TextStyle(fontSize: 14, color: Colors.black),
+                      style: TextStyle(
+                        fontSize: 14, 
+                        color:Colors.white
+                        ),
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -379,7 +397,7 @@ class _Description4State extends State<Description4> {
                     'Войти',
                     style: TextStyle(
                     fontSize: 14, 
-                    color: Colors.black
+                    color: Colors.white
                     ),
                    ),
               onPressed: () {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Employee/Employee.dart';
+import 'package:jobease/Employee/Vacancy.dart';
 import 'package:jobease/Recruiter/Recruiter.dart';
 
 //Экран выбора работник или работодатель
@@ -32,10 +32,9 @@ class _WhoAreYouState extends State<WhoAreYou> {
               padding: const EdgeInsets.only(left: 60),
               child: GestureDetector(
                 onTap: () {
-                  
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Employee()),
+                    MaterialPageRoute(builder: (context) => Vacancy()),
                   );
                 },
                 child: Row(

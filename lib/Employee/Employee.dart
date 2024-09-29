@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:jobease/Employee/Saved.dart';
+import 'package:jobease/Employee/Vacancy.dart';
 
-//Экран заполнения анкеты сотрудника
+//Экран сотрудника(Личный кабинет)
 class Employee extends StatefulWidget {
  
   const Employee({super.key,});
@@ -8,7 +10,6 @@ class Employee extends StatefulWidget {
   @override
   _EmployeeState createState() => _EmployeeState();
 }
-
 
 class _EmployeeState extends State<Employee> {
   
@@ -20,7 +21,7 @@ class _EmployeeState extends State<Employee> {
      child: Column(
       children: [
         SizedBox(height: 300),
-        Text('Сотрудник',
+        Text('Личный кабинет',
         style: TextStyle(
         fontSize: 28,
         color: Colors.black)),
@@ -44,23 +45,35 @@ class _EmployeeState extends State<Employee> {
               icon: const Icon(
                 Icons.search,
                 color: Colors.black,
-                size: 22,
+                size: 24,
                 ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Vacancy()
+                        ),
+                      );   
+                    },
             ),
              IconButton(
               icon: const Icon(
-                Icons.favorite,
+                Icons.turned_in_not,
                 color: Colors.black,
-                size: 22,
+                size: 24,
                 ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Saved()
+                        ),
+                      );   
+                    },
             ),
             IconButton(
               icon: const Icon(
                 Icons.question_answer,
                 color: Colors.black,
-                size: 22,
+                size: 24,
                 ),
               onPressed: () {},
             ),
@@ -68,7 +81,7 @@ class _EmployeeState extends State<Employee> {
               icon: const Icon(
                 Icons.person,
                 color: Colors.black,
-                size: 22,
+                size: 24,
                 ),
               onPressed: () {},
               ),

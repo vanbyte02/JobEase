@@ -80,7 +80,7 @@ class _RegistrationState extends State<Registration> {
                 height: 40, 
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                      backgroundColor:  const Color.fromARGB(255, 67, 160, 71),
+                      backgroundColor:  const Color.fromARGB(255, 74, 187, 80),
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6), 
                     ),
@@ -89,7 +89,7 @@ class _RegistrationState extends State<Registration> {
                     'Регистрация',
                     style: TextStyle(
                     fontSize: 14, 
-                    color: Colors.black
+                    color: Colors.white
                     ),
                    ),
               onPressed: () {
