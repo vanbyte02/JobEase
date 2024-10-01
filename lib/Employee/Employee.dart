@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobease/Employee/Communication.dart';
 import 'package:jobease/Employee/Saved.dart';
 import 'package:jobease/Employee/Vacancy.dart';
 
@@ -75,7 +76,13 @@ class _EmployeeState extends State<Employee> {
                 color: Colors.black,
                 size: 24,
                 ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Communication()
+                        ),
+                      );   
+                    },
             ),
             IconButton(
               icon: const Icon(

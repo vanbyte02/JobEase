@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Employee/Communication.dart';
 import 'package:jobease/Employee/Employee.dart';
+import 'package:jobease/Employee/Saved.dart';
 import 'package:jobease/Employee/Vacancy.dart';
 
-//Экран с вакансиями
-class Saved extends StatefulWidget {
+final List<String> txt = <String>['Работодатель 1', 'Работодатель 2', 'Работодатель 3', 'Работодатель 4', 'Работодатель 5', 'Работодатель 6', 'Работодатель 7'];
+
+//Экран ощение с работодателем
+class Communication extends StatefulWidget {
  
-  const Saved({super.key,});
+  const Communication({super.key,});
 
   @override
-  _SavedState createState() => _SavedState();
+  _CommunicationState createState() => _CommunicationState();
 }
 
-class _SavedState extends State<Saved> {
+class _CommunicationState extends State<Communication> {
   
  @override
   Widget build(BuildContext context) {
@@ -22,7 +24,7 @@ class _SavedState extends State<Saved> {
      child: Column(
       children: [
       const SizedBox(height: 20),
-          const Text('Избранное',
+          const Text('Чат с работодателем',
                   style: TextStyle(
                     fontSize: 16, 
                     color: Color.fromARGB(255, 91, 90, 94),
@@ -51,17 +53,17 @@ class _SavedState extends State<Saved> {
     ],
   ),
         width: 300,
-        height: 120,
+        height: 70,
         child: Stack(
           children: [
             Center(
-              child: Text('${entries[index]}'),
+              child: Text('${txt[index]}'),
             ),
             ],
           ),
         );
       },
-    separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 20),
+    separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 10),
             ),
           ) 
         ]
@@ -100,7 +102,13 @@ class _SavedState extends State<Saved> {
                 color: Colors.black,
                 size: 24,
                 ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Saved()
+                        ),
+                      );   
+                    },
             ),
             IconButton(
               icon: const Icon(
@@ -108,13 +116,7 @@ class _SavedState extends State<Saved> {
                 color: Colors.black,
                 size: 24,
                 ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Communication()
-                        ),
-                      );   
-                    },
+              onPressed: () {},
             ),
             IconButton(
               icon: const Icon(
