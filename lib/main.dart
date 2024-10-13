@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/WelcomeScreen.dart';
+import 'package:jobease/Login/WelcomeScreen.dart';
 // import 'package:jobease/Employee/Vacancy.dart';
 
 

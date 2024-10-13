@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jobease/Employee/Vacancy.dart';
 import 'package:jobease/Login/Registration.dart';
 import 'package:jobease/Login/ResetPassword.dart';
-import 'package:jobease/WhoAreYou.dart';
 
 
 //Экран авторизации
@@ -15,6 +15,8 @@ class Autorization extends StatefulWidget {
 
 class _AutorizationState extends State<Autorization> {
   
+  bool? isChecked = false;
+
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
@@ -59,13 +61,23 @@ class _AutorizationState extends State<Autorization> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Row(
+                    Row(
                       children: [
-                        Text('Запомнить меня?',
+                         Checkbox(
+                      value: isChecked,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          isChecked = value;
+                        });
+                      },
+                    ),
+                        const Text(
+                          'Запомнить меня?',
                         style: TextStyle(
                     fontSize: 12,
                     color:  Color.fromARGB(255, 88, 87, 91),
-                    ),),
+                          ),
+                        ),
                       ],
                     ),
                     TextButton(
@@ -107,7 +119,7 @@ class _AutorizationState extends State<Autorization> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const WhoAreYou()
+                  MaterialPageRoute(builder: (context) => const Vacancy()
                         ),
                       );   
                     },

@@ -72,25 +72,25 @@ class _VacancyState extends State<Vacancy> {
                   ),
         const SizedBox(height: 20),
          Expanded(
-          child: ListView.separated(
-    padding: const EdgeInsets.all(10),
-    itemCount: entries.length,
-    itemBuilder: (
-      BuildContext context, 
-      int index
-      ){
-      return Container(
-  decoration: BoxDecoration(
-    color: const Color.fromARGB(255, 247, 247, 247),
-    borderRadius: BorderRadius.circular(10),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black.withOpacity(0.1),
-        spreadRadius: 3,
-        blurRadius: 4,
-      ),
-    ],
-  ),
+        child: ListView.separated(
+          padding: const EdgeInsets.all(10),
+          itemCount: entries.length,
+          itemBuilder: (
+            BuildContext context, 
+            int index
+            ){
+            return Container(
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 247, 247, 247),
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 3,
+              blurRadius: 4,
+            ),
+          ],
+        ),
   width: 340,
   height: 250,
   child: Stack(
@@ -124,6 +124,16 @@ class _VacancyState extends State<Vacancy> {
             ),
           ),
         ),
+        Align(
+            alignment: Alignment.topRight,
+            child: IconButton(
+              icon: const Icon(
+                Icons.turned_in_not,
+                ),
+              onPressed: () {
+              },
+            ),
+          ),
       ],
     ),
   );

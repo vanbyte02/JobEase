@@ -82,8 +82,8 @@ class Description1 extends StatefulWidget {
   @override
   _Description1State createState() => _Description1State();
 }
-
 class _Description1State extends State<Description1> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,16 +108,18 @@ class _Description1State extends State<Description1> {
               ),
             ),
           ),
-          const Center(
+            const Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                //  Image.asset(
-                //      'asset/Определиться.png', 
-                //     width: 20,
-                //     height: 20,
+                // Container(
+                //    child: Image.asset(
+                //   "assets/images/Определиться.png",
+                //   height: 75,
+                //   width: 75,
                 //   ),
-                Padding(
+                //   ),
+                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32),
                   child: Text(
                     'Определиться с идеальным карьерным путем.',
@@ -129,8 +131,8 @@ class _Description1State extends State<Description1> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
-                Padding(
+                 SizedBox(height: 10),
+                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 40),
                   child: Text(
                     'Мы поможем тебе разобраться в своих желаниях и выбрать направление, которое подходит именно тебе.',
@@ -184,14 +186,16 @@ class _Description2State extends State<Description2> {
               ),
             ),
           ),
-           const  Center(
+             const Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Image.asset(
-                //      'assets/Найти.png', 
-                //     width: 20,
-                //     height: 20,
+                // Container(
+                //    child: Image.asset(
+                //   "assets/images/Определиться.png",
+                //   height: 75,
+                //   width: 75,
+                //   ),
                 //   ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32),

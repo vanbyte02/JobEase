@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Description.dart';
+import 'package:jobease/Login/Description.dart';
 
 
 //Привественный экран

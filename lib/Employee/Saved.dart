@@ -57,6 +57,16 @@ class _SavedState extends State<Saved> {
             Center(
               child: Text('${entries[index]}'),
             ),
+            Align(
+            alignment: Alignment.topRight,
+            child: IconButton(
+              icon: const Icon(
+                Icons.turned_in,
+                ),
+              onPressed: () {
+              },
+            ),
+          ),
             ],
           ),
         );

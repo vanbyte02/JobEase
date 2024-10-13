@@ -3,7 +3,7 @@ import 'package:jobease/Employee/Employee.dart';
 import 'package:jobease/Employee/Saved.dart';
 import 'package:jobease/Employee/Vacancy.dart';
 
-final List<String> txt = <String>['Работодатель 1', 'Работодатель 2', 'Работодатель 3', 'Работодатель 4', 'Работодатель 5', 'Работодатель 6', 'Работодатель 7'];
+final List<String> txt = <String>['Работодатель 1', 'Работодатель 2', 'Работодатель 3', 'Работодатель 4', 'Работодатель 5', 'Работодатель 6', 'Работодатель 7', 'Работодатель 8', 'Работодатель 9', 'Работодатель 10',];
 
 //Экран ощение с работодателем
 class Communication extends StatefulWidget {

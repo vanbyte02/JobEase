@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jobease/Employee/Vacancy.dart';
 import 'package:jobease/Login/Autorization.dart';
-import 'package:jobease/WhoAreYou.dart';
 
 
 //Экран регистрации
@@ -15,6 +15,8 @@ class Registration extends StatefulWidget {
 
 class _RegistrationState extends State<Registration> {
   
+  bool? isChecked = false;
+
  @override
   Widget build(BuildContext context) {
     return  MaterialApp(
@@ -65,15 +67,25 @@ class _RegistrationState extends State<Registration> {
                   ),
                 ),
                 const SizedBox(height: 15),
-                const Row(
+                Row(
                       children: [
-                        Text('Я согласен с правилами платформы',
+                        Checkbox(
+                      value: isChecked,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          isChecked = value;
+                        });
+                      },
+                    ),
+                        const Text(
+                          'Я согласен с правилами платформы',
                         style: TextStyle(
                     fontSize: 13,
                     color:  Color.fromARGB(255, 88, 87, 91),
-                    ),),
-                      ],
-                    ),
+                        ),
+                      ),
+                    ],
+                  ),
                 const SizedBox(height: 15),
                 SizedBox(
                 width: 250,
@@ -95,7 +107,7 @@ class _RegistrationState extends State<Registration> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const WhoAreYou()
+                  MaterialPageRoute(builder: (context) => const Vacancy()
                         ),
                       );   
                     },
