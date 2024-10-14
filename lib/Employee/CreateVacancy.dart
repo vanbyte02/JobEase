@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-//Экран с созданием вакансии
 class CreateVacancy extends StatefulWidget {
   @override
   _CreateVacancyState createState() => _CreateVacancyState();
@@ -9,6 +8,8 @@ class CreateVacancy extends StatefulWidget {
 class _CreateVacancyState extends State<CreateVacancy> {
   final PageController _pageController = PageController();
   int _currentStep = 0;
+  String _selectedEducationLevel = '';
+  String _selectedValue = '';
 
   void _nextPage() {
     if (_currentStep < 2) {
@@ -56,17 +57,15 @@ class _CreateVacancyState extends State<CreateVacancy> {
                       const SizedBox(height: 70),
                       Center(
                         child: Text(
-                        "Кем бы вы хотели работать?",
-                        style: TextStyle(fontSize: 18),
+                          "Кем бы вы хотели работать?",
+                          style: TextStyle(fontSize: 18),
                         ),
                       ),
                       const SizedBox(height: 20),
                       TextField(
                         decoration: InputDecoration(
                           hintText: 'Поиск',
-                          prefixIcon: const Icon(
-                            Icons.search
-                            ),
+                          prefixIcon: const Icon(Icons.search),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(8),
                           ),
@@ -75,65 +74,65 @@ class _CreateVacancyState extends State<CreateVacancy> {
                       const SizedBox(height: 70),
                       Center(
                         child: Text(
-                        "Укажите уровень дохода",
-                        style: TextStyle(fontSize: 18),
+                          "Укажите уровень дохода",
+                          style: TextStyle(fontSize: 18),
                         ),
                       ),
-                      const SizedBox(height: 0),
+                      const SizedBox(height: 20),
                       TextField(
                         decoration: InputDecoration(
                           hintText: 'Сумма в месяц',
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        keyboardType: TextInputType.number,
                       ),
                     ],
                   ),
                 ),
 
                 //2
-                Padding(
+                SingleChildScrollView(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Center(
+                      const Center(
                         child: Text(
-                        "Основная информация о вас",
-                        style: TextStyle(fontSize: 18),
+                          "Основная информация о вас",
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Color.fromARGB(255, 88, 87, 91),
+                          ),
                         ),
                       ),
                       const SizedBox(height: 20),
-                      TextField(
+                      const TextField(
                         decoration: InputDecoration(
                           labelText: 'Фамилия',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      TextField(
+                      const SizedBox(height: 20),
+                      const TextField(
                         decoration: InputDecoration(
                           labelText: 'Имя',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      TextField(
+                      const SizedBox(height: 20),
+                      const TextField(
                         decoration: InputDecoration(
                           labelText: 'Отчество',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      const Text("Пол"),
+                      const SizedBox(height: 30),
+                      const Text(
+                        "Пол",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color.fromARGB(255, 88, 87, 91),
+                        ),
+                      ),
+                      const SizedBox(height: 5),
                       Row(
                         children: [
                           Radio(
@@ -142,6 +141,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
                             onChanged: (value) {},
                           ),
                           const Text('Мужской'),
+                          const SizedBox(width: 10),
                           Radio(
                             value: 'Женский',
                             groupValue: 'Пол',
@@ -150,71 +150,233 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           const Text('Женский'),
                         ],
                       ),
-                      const SizedBox(height: 10),
-                      TextField(
+                      const SizedBox(height: 20),
+                      const TextField(
                         decoration: InputDecoration(
                           labelText: 'Дата рождения',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
                         ),
                       ),
-                      const SizedBox(height: 10),
-                      TextField(
+                      const SizedBox(height: 20),
+                      const TextField(
                         decoration: InputDecoration(
                           labelText: 'Электронная почта',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          ),
                         ),
-                        keyboardType: TextInputType.emailAddress,
+                      ),
+                      const SizedBox(height: 20),
+                      const TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Номер телефона',
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      TextField(
+                        decoration: InputDecoration(
+                          labelText: 'Город проживания',
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.control_point, size: 20),
+                            onPressed: () {},
+                          ),
+                          const SizedBox(width: 5),
+                          const Text('Добавить метро',
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      const Text(
+                        'Гражданство',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color.fromARGB(255, 88, 87, 91),
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.control_point, size: 20),
+                            onPressed: () {},
+                          ),
+                          const SizedBox(width: 5),
+                          const Text('Добавить гражданство',
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        color: Color.fromARGB(255, 88, 87, 91),
+                        height: 5,
+                        thickness: 1,
+                      ),
+                      const SizedBox(height: 25),
+                      const Text(
+                        'Разрешение на работу',
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Color.fromARGB(255, 88, 87, 91),
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.control_point, size: 20),
+                            onPressed: () {},
+                          ),
+                          const SizedBox(width: 5),
+                          const Text('Добавить разрешение',
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        color: Color.fromARGB(255, 88, 87, 91),
+                        height: 5,
+                        thickness: 1,
                       ),
                     ],
                   ),
                 ),
 
                 //3
-                const Padding(
-                  padding:  EdgeInsets.all(16.0),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Center(
                         child: Text(
-                        "Уровень вашего образования",
-                        style: TextStyle(fontSize: 18),
+                          "Уровень вашего образования",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 88, 87, 91),
+                          ),
                         ),
                       ),
-                       SizedBox(height: 20),
+                      SizedBox(height: 10),
                       Column(
-                        children:  [
+                        children: [
                           ListTile(
                             title: Text('Среднее'),
-                            leading: Radio(value: 'Среднее', groupValue: 'Образование', onChanged: null),
+                            leading: Radio(
+                              value: 'Среднее',
+                              groupValue: _selectedValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedValue = value as String;
+                                  _selectedEducationLevel = value ;
+                                });
+                              },
+                            ),
                           ),
+                          SizedBox(height: 10),
                           ListTile(
                             title: Text('Среднее специальное'),
-                            leading: Radio(value: 'Среднее специальное', groupValue: 'Образование', onChanged: null),
+                            leading: Radio(
+                              value: 'Среднее специальное',
+                              groupValue: _selectedValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedValue = value as String;
+                                  _selectedEducationLevel = value;
+                                });
+                                
+                              },
+                            ),
                           ),
+                          SizedBox(height: 10),
                           ListTile(
                             title: Text('Неоконченное высшее'),
-                            leading: Radio(value: 'Неоконченное высшее', groupValue: 'Образование', onChanged: null),
+                            leading: Radio(
+                              value: 'Неоконченное высшее',
+                              groupValue: _selectedValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedValue = value as String;
+                                  _selectedEducationLevel = value;
+                                });
+                                
+                              },
+                            ),
                           ),
+                          SizedBox(height: 10),
+                          ListTile(
+                            title: Text('Высшее'),
+                            leading: Radio(
+                              value: 'Высшее',
+                              groupValue: _selectedValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedValue = value as String;
+                                  _selectedEducationLevel = value;
+                                });
+                                
+                              },
+                            ),
+                          ),
+                          SizedBox(height: 10),
                           ListTile(
                             title: Text('Бакалавр'),
-                            leading: Radio(value: 'Бакалавр', groupValue: 'Образование', onChanged: null),
+                            leading: Radio(
+                              value: 'Бакалавр',
+                              groupValue: _selectedValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedValue = value as String;
+                                  _selectedEducationLevel = value;
+                                });
+                                
+                              },
+                            ),
                           ),
+                          SizedBox(height: 10),
                           ListTile(
                             title: Text('Магистр'),
-                            leading: Radio(value: 'Магистр', groupValue: 'Образование', onChanged: null),
+                            leading: Radio(
+                              value: 'Магистр',
+                              groupValue: _selectedValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedValue = value as String;
+                                  _selectedEducationLevel = value;
+                                });
+                                
+                              },
+                            ),
                           ),
+                          SizedBox(height: 10),
                           ListTile(
                             title: Text('Кандидат наук'),
-                            leading: Radio(value: 'Кандидат наук', groupValue: 'Образование', onChanged: null),
+                            leading: Radio(
+                              value: 'Кандидат наук',
+                              groupValue : _selectedValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedValue = value as String;
+                                  _selectedEducationLevel = value;
+                                });
+                               
+                              },
+                            ),
                           ),
+                          SizedBox(height: 10),
                           ListTile(
                             title: Text('Доктор наук'),
-                            leading: Radio(value: 'Доктор наук', groupValue: 'Образование', onChanged: null),
+                            leading: Radio(
+                              value: 'Доктор наук',
+                              groupValue: _selectedValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedValue = value as String;
+                                  _selectedEducationLevel = value;
+                                });
+                              },
+                            ),
                           ),
                         ],
                       ),
@@ -224,11 +386,13 @@ class _CreateVacancyState extends State<CreateVacancy> {
               ],
             ),
           ),
+
+
           Padding(
             padding: const EdgeInsets.all(16),
             child: SizedBox(
               width: 270,
-              height: 40, 
+              height: 40,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.green,
@@ -238,11 +402,11 @@ class _CreateVacancyState extends State<CreateVacancy> {
                 ),
                 onPressed: _nextPage,
                 child: const Text(
-                  'Далее', 
+                  'Далее',
                   style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white
-                  )
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),
