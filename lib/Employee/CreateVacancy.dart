@@ -29,22 +29,11 @@ class _CreateVacancyState extends State<CreateVacancy> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Заполнение резюме"),
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        elevation: 0,
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: Icon(Icons.more_vert, color: Colors.black),
-          ),
-        ],
-      ),
+      backgroundColor: const Color.fromARGB(255, 242, 242, 242),
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16),
             child: LinearProgressIndicator(
               value: _getProgress(),
               backgroundColor: Colors.grey[300],
@@ -53,8 +42,6 @@ class _CreateVacancyState extends State<CreateVacancy> {
             ),
           ),
 
-
-
           //1
           Expanded(
             child: PageView(
@@ -62,30 +49,37 @@ class _CreateVacancyState extends State<CreateVacancy> {
               physics: const NeverScrollableScrollPhysics(),
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      const SizedBox(height: 70),
+                      Center(
+                        child: Text(
                         "Кем бы вы хотели работать?",
                         style: TextStyle(fontSize: 18),
+                        ),
                       ),
                       const SizedBox(height: 20),
                       TextField(
                         decoration: InputDecoration(
                           hintText: 'Поиск',
-                          prefixIcon: Icon(Icons.search),
+                          prefixIcon: const Icon(
+                            Icons.search
+                            ),
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         ),
                       ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        "Уровень дохода",
+                      const SizedBox(height: 70),
+                      Center(
+                        child: Text(
+                        "Укажите уровень дохода",
                         style: TextStyle(fontSize: 18),
+                        ),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 0),
                       TextField(
                         decoration: InputDecoration(
                           hintText: 'Сумма в месяц',
@@ -99,17 +93,17 @@ class _CreateVacancyState extends State<CreateVacancy> {
                   ),
                 ),
 
-
-
                 //2
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Center(
+                        child: Text(
                         "Основная информация о вас",
                         style: TextStyle(fontSize: 18),
+                        ),
                       ),
                       const SizedBox(height: 20),
                       TextField(
@@ -179,23 +173,21 @@ class _CreateVacancyState extends State<CreateVacancy> {
                   ),
                 ),
 
-
-
-
-
                 //3
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
+                const Padding(
+                  padding:  EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
+                      Center(
+                        child: Text(
                         "Уровень вашего образования",
                         style: TextStyle(fontSize: 18),
+                        ),
                       ),
-                      const SizedBox(height: 20),
+                       SizedBox(height: 20),
                       Column(
-                        children: const [
+                        children:  [
                           ListTile(
                             title: Text('Среднее'),
                             leading: Radio(value: 'Среднее', groupValue: 'Образование', onChanged: null),
