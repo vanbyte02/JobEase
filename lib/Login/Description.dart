@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:jobease/Login/Autorization.dart';
 import 'package:jobease/Login/Registration.dart';
 
-
 //Экраны с описанием приложения
 
 class Description extends StatefulWidget {
@@ -14,15 +13,27 @@ class Description extends StatefulWidget {
 
 class _DescriptionState extends State<Description> {
 
+  List catalog = [
+  Image.asset("lib/assets/images/Определиться.png"),
+  Image.asset("lib/assets/images/Найти.png"),
+  Image.asset("lib/assets/images/Упростить.png"),
+  Image.asset("lib/assets/images/Зарегестрируйся.png")
+];
+
   final PageController _pageController = PageController(initialPage: 0);
 
   int _activePage = 0;
+
 
   final List<Widget> _pages = [
     const Description1(),
     const Description2(),
     const Description3()
   ];
+
+
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -80,9 +91,9 @@ class Description1 extends StatefulWidget {
   const Description1({super.key});
 
   @override
-  _Description1State createState() => _Description1State();
+  _Description1 createState() => _Description1();
 }
-class _Description1State extends State<Description1> {
+class _Description1 extends State<Description1> {
   
   @override
   Widget build(BuildContext context) {
@@ -108,18 +119,21 @@ class _Description1State extends State<Description1> {
               ),
             ),
           ),
-            const Center(
+             Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Container(
-                //    child: Image.asset(
-                //   "assets/images/Определиться.png",
-                //   height: 75,
-                //   width: 75,
-                //   ),
-                //   ),
-                 Padding(
+                Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                          "lib/assets/images/Определиться.png"),
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                    ),
+                  ),
+                ),
+                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32),
                   child: Text(
                     'Определиться с идеальным карьерным путем.',
@@ -131,8 +145,8 @@ class _Description1State extends State<Description1> {
                     ),
                   ),
                 ),
-                 SizedBox(height: 10),
-                 Padding(
+                 const SizedBox(height: 10),
+                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 40),
                   child: Text(
                     'Мы поможем тебе разобраться в своих желаниях и выбрать направление, которое подходит именно тебе.',
@@ -158,10 +172,10 @@ class Description2 extends StatefulWidget {
   const Description2({super.key});
 
   @override
-  _Description2State createState() => _Description2State();
+  _Description2 createState() => _Description2();
 }
 
-class _Description2State extends State<Description2> {
+class _Description2 extends State<Description2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -186,18 +200,21 @@ class _Description2State extends State<Description2> {
               ),
             ),
           ),
-             const Center(
+              Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Container(
-                //    child: Image.asset(
-                //   "assets/images/Определиться.png",
-                //   height: 75,
-                //   width: 75,
-                //   ),
-                //   ),
-                Padding(
+                Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                          "lib/assets/images/Найти.png"),
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                    ),
+                  ),
+                ),
+                const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32),
                   child: Text(
                     'Найти множество вакансий.',
@@ -209,8 +226,8 @@ class _Description2State extends State<Description2> {
                     ),
                   ),
                 ),
-                SizedBox(height: 10),
-                Padding(
+                const SizedBox(height: 10),
+                const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 27.8),
                     child: Text(
                     'Мы предлагаем широкий выбор актуальных вакансий от лучших работодателей.',
@@ -236,10 +253,10 @@ class Description3 extends StatefulWidget {
   const Description3({super.key});
 
   @override
-  _Description3State createState() => _Description3State();
+  _Description3 createState() => _Description3();
 }
 
-class _Description3State extends State<Description3> {
+class _Description3 extends State<Description3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -250,11 +267,18 @@ class _Description3State extends State<Description3> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                //  Image.asset(
-                //      'asset/Упростить.png', 
-                //     width: 20,
-                //     height: 20,
-                //   ),
+                Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                          "lib/assets/images/Упростить.png",
+                          ),
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                    ),
+                    
+                  ),
+                ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32),
                   child: Text(
@@ -322,10 +346,10 @@ class Description4 extends StatefulWidget {
   const Description4({super.key});
 
   @override
-  _Description4State createState() => _Description4State();
+  _Description4 createState() => _Description4();
 }
 
-class _Description4State extends State<Description4> {
+class _Description4 extends State<Description4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -336,10 +360,12 @@ class _Description4State extends State<Description4> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                //  Image.asset(
-                //      'asset/Зарегистрируйся.png', 
-                //     width: 20,
-                //     height: 20,
+                // ListTile(
+                //     leading: Image.asset(
+                //       catalog[index].photo[0],
+                //       height: 75,
+                //       width: 75,
+                //     ),
                 //   ),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32),

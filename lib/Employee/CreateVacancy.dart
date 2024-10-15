@@ -12,7 +12,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
   String _selectedValue = '';
 
   void _nextPage() {
-    if (_currentStep < 2) {
+    if (_currentStep < 4) {
       setState(() {
         _currentStep++;
       });
@@ -24,7 +24,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
   }
 
   double _getProgress() {
-    return (_currentStep + 1) / 4;
+    return (_currentStep + 1) / 5;
   }
 
   @override
@@ -258,7 +258,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 10),
+                      SizedBox(height: 20),
                       Column(
                         children: [
                           ListTile(
@@ -378,6 +378,56 @@ class _CreateVacancyState extends State<CreateVacancy> {
                               },
                             ),
                           ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+
+                //4
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: Text(
+                          "Где вы учились?",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 88, 87, 91),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Column(
+                        children: [
+                          
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+
+                //5
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: Text(
+                          "Где вы учились?",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 88, 87, 91),
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Column(
+                        children: [
+                          
                         ],
                       ),
                     ],
