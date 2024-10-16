@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Communication.dart';
-import 'package:jobease/Employee/CreateVacancy.dart';
+import 'package:jobease/Employee/CreateVacancy/CreateVacancy.dart';
 import 'package:jobease/Employee/Saved.dart';
 import 'package:jobease/Employee/Vacancy.dart';
 
 const List<String> vibor = <String>['Активно ищу работу', 'Рассматриваю предложения', 'Предложили работу, пока думаю', 'Не ищу работу'];
-final List<String> entries1 = <String>['Программист 1C', 'Аналитик данных', 'Frontend-разработчик'];
+final List<String> entries1 = <String>['Программист 1C', //'Аналитик данных', //'Frontend-разработчик'
+];
 
 class Employee extends StatefulWidget {
   const Employee({super.key});
@@ -79,19 +80,11 @@ class _EmployeeState extends State<Employee> {
                   ),
                 ],
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 20),
+              child: const Center(
+                   child: Padding(
+                    padding: EdgeInsets.only(left: 1),
                     child: DropdownMenuExample(),
                   ),
-                  IconButton(
-                    icon: const Icon(Icons.arrow_forward_ios),
-                    onPressed: () {
-                    },
-                  ),
-                ],
               ),
             ),
             const SizedBox(height: 20),

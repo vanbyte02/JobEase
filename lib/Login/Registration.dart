@@ -33,7 +33,7 @@ class _RegistrationState extends State<Registration> {
                   'Регистрация',
                   style: TextStyle(
                     fontSize: 24,
-                    color:  Color.fromARGB(255, 88, 87, 91),
+                    color: Color.fromARGB(255, 88, 87, 91),
                     fontWeight: FontWeight.bold,
                   ),
                 ),

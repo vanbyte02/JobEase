@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jobease/Employee/CreateVacancy/Metro.dart';
+import 'package:jobease/Employee/CreateVacancy/Nationality.dart';
+import 'package:jobease/Employee/CreateVacancy/WorkPermit.dart';
 
 class CreateVacancy extends StatefulWidget {
   @override
@@ -21,6 +24,8 @@ class _CreateVacancyState extends State<CreateVacancy> {
         curve: Curves.easeInOut,
       );
     }
+    else if(_currentStep == 5){
+    }
   }
 
   double _getProgress() {
@@ -34,7 +39,8 @@ class _CreateVacancyState extends State<CreateVacancy> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
+
             child: LinearProgressIndicator(
               value: _getProgress(),
               backgroundColor: Colors.grey[300],
@@ -55,7 +61,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 70),
-                      Center(
+                      const Center(
                         child: Text(
                           "Кем бы вы хотели работать?",
                           style: TextStyle(fontSize: 18),
@@ -72,7 +78,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
                         ),
                       ),
                       const SizedBox(height: 70),
-                      Center(
+                      const Center(
                         child: Text(
                           "Укажите уровень дохода",
                           style: TextStyle(fontSize: 18),
@@ -136,17 +142,27 @@ class _CreateVacancyState extends State<CreateVacancy> {
                       Row(
                         children: [
                           Radio(
-                            value: 'Мужской',
-                            groupValue: 'Пол',
-                            onChanged: (value) {},
-                          ),
+                              value: 'Мужской',
+                              groupValue: _selectedValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedValue = value as String;
+                                  _selectedEducationLevel = value;
+                                });
+                              },
+                            ),
                           const Text('Мужской'),
                           const SizedBox(width: 10),
                           Radio(
-                            value: 'Женский',
-                            groupValue: 'Пол',
-                            onChanged: (value) {},
-                          ),
+                              value: 'Женский',
+                              groupValue: _selectedValue,
+                              onChanged: (value) {
+                                setState(() {
+                                  _selectedValue = value as String;
+                                  _selectedEducationLevel = value;
+                                });
+                              },
+                            ),
                           const Text('Женский'),
                         ],
                       ),
@@ -169,7 +185,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      TextField(
+                      const TextField(
                         decoration: InputDecoration(
                           labelText: 'Город проживания',
                         ),
@@ -178,8 +194,17 @@ class _CreateVacancyState extends State<CreateVacancy> {
                       Row(
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.control_point, size: 20),
-                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.control_point, 
+                              size: 20
+                              ),
+                            onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Metro()
+                                ),
+                              );   
+                            },
                           ),
                           const SizedBox(width: 5),
                           const Text('Добавить метро',
@@ -199,8 +224,17 @@ class _CreateVacancyState extends State<CreateVacancy> {
                       Row(
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.control_point, size: 20),
-                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.control_point, 
+                              size: 20
+                              ),
+                            onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Nationality()
+                                ),
+                              );   
+                            },
                           ),
                           const SizedBox(width: 5),
                           const Text('Добавить гражданство',
@@ -208,7 +242,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ),
                         ],
                       ),
-                      Divider(
+                      const Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                         height: 5,
                         thickness: 1,
@@ -225,8 +259,17 @@ class _CreateVacancyState extends State<CreateVacancy> {
                       Row(
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.control_point, size: 20),
-                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.control_point, 
+                            size: 20
+                            ),
+                            onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => WorkPermit()
+                                ),
+                              );   
+                            },
                           ),
                           const SizedBox(width: 5),
                           const Text('Добавить разрешение',
@@ -234,7 +277,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ),
                         ],
                       ),
-                      Divider(
+                      const Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                         height: 5,
                         thickness: 1,
@@ -249,7 +292,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Center(
+                      const Center(
                         child: Text(
                           "Уровень вашего образования",
                           style: TextStyle(
@@ -258,11 +301,11 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 10),
                       Column(
                         children: [
                           ListTile(
-                            title: Text('Среднее'),
+                            title: const Text('Среднее'),
                             leading: Radio(
                               value: 'Среднее',
                               groupValue: _selectedValue,
@@ -274,9 +317,8 @@ class _CreateVacancyState extends State<CreateVacancy> {
                               },
                             ),
                           ),
-                          SizedBox(height: 10),
                           ListTile(
-                            title: Text('Среднее специальное'),
+                            title: const Text('Среднее специальное'),
                             leading: Radio(
                               value: 'Среднее специальное',
                               groupValue: _selectedValue,
@@ -289,9 +331,8 @@ class _CreateVacancyState extends State<CreateVacancy> {
                               },
                             ),
                           ),
-                          SizedBox(height: 10),
                           ListTile(
-                            title: Text('Неоконченное высшее'),
+                            title: const Text('Неоконченное высшее'),
                             leading: Radio(
                               value: 'Неоконченное высшее',
                               groupValue: _selectedValue,
@@ -304,9 +345,8 @@ class _CreateVacancyState extends State<CreateVacancy> {
                               },
                             ),
                           ),
-                          SizedBox(height: 10),
                           ListTile(
-                            title: Text('Высшее'),
+                            title: const Text('Высшее'),
                             leading: Radio(
                               value: 'Высшее',
                               groupValue: _selectedValue,
@@ -319,9 +359,8 @@ class _CreateVacancyState extends State<CreateVacancy> {
                               },
                             ),
                           ),
-                          SizedBox(height: 10),
                           ListTile(
-                            title: Text('Бакалавр'),
+                            title: const Text('Бакалавр'),
                             leading: Radio(
                               value: 'Бакалавр',
                               groupValue: _selectedValue,
@@ -334,9 +373,8 @@ class _CreateVacancyState extends State<CreateVacancy> {
                               },
                             ),
                           ),
-                          SizedBox(height: 10),
                           ListTile(
-                            title: Text('Магистр'),
+                            title: const Text('Магистр'),
                             leading: Radio(
                               value: 'Магистр',
                               groupValue: _selectedValue,
@@ -349,9 +387,8 @@ class _CreateVacancyState extends State<CreateVacancy> {
                               },
                             ),
                           ),
-                          SizedBox(height: 10),
                           ListTile(
-                            title: Text('Кандидат наук'),
+                            title: const Text('Кандидат наук'),
                             leading: Radio(
                               value: 'Кандидат наук',
                               groupValue : _selectedValue,
@@ -364,9 +401,8 @@ class _CreateVacancyState extends State<CreateVacancy> {
                               },
                             ),
                           ),
-                          SizedBox(height: 10),
                           ListTile(
-                            title: Text('Доктор наук'),
+                            title: const Text('Доктор наук'),
                             leading: Radio(
                               value: 'Доктор наук',
                               groupValue: _selectedValue,
@@ -390,7 +426,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Center(
+                      const Center(
                         child: Text(
                           "Где вы учились?",
                           style: TextStyle(
@@ -399,10 +435,21 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Column(
                         children: [
-                          
+                          Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.control_point, size: 20),
+                            onPressed: () {},
+                          ),
+                          const SizedBox(width: 5),
+                          const Text('Добавить учебное заведение',
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
                         ],
                       ),
                     ],
@@ -415,19 +462,30 @@ class _CreateVacancyState extends State<CreateVacancy> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Center(
+                      const Center(
                         child: Text(
-                          "Где вы учились?",
+                          "Опыт работы",
                           style: TextStyle(
                             fontSize: 20,
                             color: Color.fromARGB(255, 88, 87, 91),
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Column(
                         children: [
-                          
+                          Row(
+                        children: [
+                          IconButton(
+                            icon: const Icon(Icons.control_point, size: 20),
+                            onPressed: () {},
+                          ),
+                          const SizedBox(width: 5),
+                          const Text('Добавить опыт работы',
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
                         ],
                       ),
                     ],
@@ -466,3 +524,6 @@ class _CreateVacancyState extends State<CreateVacancy> {
     );
   }
 }
+
+
+
