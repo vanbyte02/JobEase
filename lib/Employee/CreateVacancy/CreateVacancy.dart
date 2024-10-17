@@ -24,8 +24,6 @@ class _CreateVacancyState extends State<CreateVacancy> {
         curve: Curves.easeInOut,
       );
     }
-    else if(_currentStep == 5){
-    }
   }
 
   double _getProgress() {
@@ -495,7 +493,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
             ),
           ),
 
-
+       
           Padding(
             padding: const EdgeInsets.all(16),
             child: SizedBox(

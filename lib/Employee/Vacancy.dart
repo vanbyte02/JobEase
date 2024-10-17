@@ -29,24 +29,31 @@ class _VacancyState extends State<Vacancy> {
           mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-            width: 260,
-            height: 27,
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(255, 247, 247, 247),
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  spreadRadius: 3,
-                  blurRadius: 4,
+                width: 270,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 247, 247, 247),
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      spreadRadius: 3,
+                      blurRadius: 4,
+                    ),
+                  ],
                 ),
-              ],
-            ),   
-          child: const Center(
-            child: Text('Введите ключевые слова',
-                  style: TextStyle(
-                    fontSize: 14, 
-                    color: Color.fromARGB(255, 91, 90, 94),
+                child: const Center(
+                  child: TextField(
+                    decoration:  InputDecoration(
+                      contentPadding:
+                           EdgeInsets.symmetric(
+                            vertical: 6, 
+                           horizontal: 10),
+                      prefixIcon:  Icon(
+                        Icons.search
+                      ),
+                      hintText: 'Поиск...',
+                      border: InputBorder.none,
                     ),
                   ),
                 ),
