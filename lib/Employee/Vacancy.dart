@@ -98,13 +98,13 @@ class _VacancyState extends State<Vacancy> {
             ),
           ],
         ),
-  width: 340,
-  height: 250,
-  child: Stack(
-    children: [
-      Center(
-        child: Text('${entries[index]}'),
-      ),
+        width: 290,
+        height: 250,
+        child: Stack(
+          children: [
+            Center(
+              child: Text('${entries[index]}'),
+            ),
       Align(
         alignment: Alignment.bottomCenter,
         child: Container(

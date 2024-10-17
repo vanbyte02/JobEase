@@ -20,17 +20,9 @@ class _EmployeeState extends State<Employee> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 242, 242, 242),
-      body: SingleChildScrollView(
+      body: Center(
         child: Column(
-          children: [
-            const SizedBox(height: 50),
-            const Text(
-              'Мои резюме',
-              style: TextStyle(
-                fontSize: 28,
-                color: Color.fromARGB(255, 91, 90, 94),
-              ),
-            ),
+          children: [ 
             const SizedBox(height: 20),
             Container(
               width: 290,
@@ -88,47 +80,47 @@ class _EmployeeState extends State<Employee> {
               ),
             ),
             const SizedBox(height: 20),
-            SizedBox(
-              height: 250,
-              child: ListView.separated(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                itemCount: entries1.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    height: 70,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 247, 247, 247),
-                      borderRadius: BorderRadius.circular(20),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
-                          spreadRadius: 3,
-                          blurRadius: 4,
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Text(
-                            entries1[index],
-                            style: const TextStyle(fontSize: 18),
-                          ),
-                        ),
-                        IconButton(
-                          icon: const Icon(Icons.arrow_forward_ios),
-                          onPressed: () {
-                          },
-                        ),
-                      ],
-                    ),
-                  );
-                },
-                separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 20),
-              ),
-            ),
+            // SizedBox(
+            //   height: 250,
+            //   child: ListView.separated(
+            //     padding: const EdgeInsets.symmetric(horizontal: 30),
+            //     itemCount: entries1.length,
+            //     itemBuilder: (BuildContext context, int index) {
+            //       return Container(
+            //         height: 70,
+            //         decoration: BoxDecoration(
+            //           color: const Color.fromARGB(255, 247, 247, 247),
+            //           borderRadius: BorderRadius.circular(20),
+            //           boxShadow: [
+            //             BoxShadow(
+            //               color: Colors.black.withOpacity(0.1),
+            //               spreadRadius: 3,
+            //               blurRadius: 4,
+            //             ),
+            //           ],
+            //         ),
+            //         child: Row(
+            //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //           children: [
+            //             Padding(
+            //               padding: const EdgeInsets.only(left: 20),
+            //               child: Text(
+            //                 entries1[index],
+            //                 style: const TextStyle(fontSize: 18),
+            //               ),
+            //             ),
+            //             IconButton(
+            //               icon: const Icon(Icons.arrow_forward_ios),
+            //               onPressed: () {
+            //               },
+            //             ),
+            //           ],
+            //         ),
+            //       );
+            //     },
+            //     separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 20),
+            //   ),
+            // ),
             const SizedBox(height: 20),
             SizedBox(
                 width: 270,
