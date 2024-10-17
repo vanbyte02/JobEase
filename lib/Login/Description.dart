@@ -53,7 +53,7 @@ class _DescriptionState extends State<Description> {
             },
           ),
           Positioned(
-            top: 450,
+            top: 600,
             left: 20,
             right: 20,
             child: Container(
@@ -124,16 +124,18 @@ class _Description1 extends State<Description1> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage(
-                          "lib/assets/images/Определиться.png"),
-                      fit: BoxFit.cover,
-                      alignment: Alignment.topCenter,
+                    width: 250,  
+                    height: 250,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("lib/assets/images/Определиться.png"),
+                        fit: BoxFit.cover,
+                        alignment: Alignment.topCenter,
+                      ),
                     ),
                   ),
-                ),
-                 const Padding(
+                  const SizedBox(height: 20),
+                  const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32),
                   child: Text(
                     'Определиться с идеальным карьерным путем.',
@@ -205,6 +207,8 @@ class _Description2 extends State<Description2> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
+                  width: 250,  
+                  height: 250,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(
@@ -214,6 +218,7 @@ class _Description2 extends State<Description2> {
                     ),
                   ),
                 ),
+                const SizedBox(height: 20),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32),
                   child: Text(
@@ -268,6 +273,8 @@ class _Description3 extends State<Description3> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
+                  width: 250,  
+                  height: 250,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(
@@ -279,6 +286,7 @@ class _Description3 extends State<Description3> {
                     
                   ),
                 ),
+                const SizedBox(height: 20),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32),
                   child: Text(
@@ -360,13 +368,21 @@ class _Description4 extends State<Description4> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // ListTile(
-                //     leading: Image.asset(
-                //       catalog[index].photo[0],
-                //       height: 75,
-                //       width: 75,
-                //     ),
-                //   ),
+                Container(
+                  width: 250,  
+                  height: 250,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                          "lib/assets/images/Зарегистрируйся.png",
+                          ),
+                      fit: BoxFit.cover,
+                      alignment: Alignment.topCenter,
+                    ),
+                    
+                  ),
+                ),
+                const SizedBox(height: 50),
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 32),
                   child: Text(
@@ -379,7 +395,7 @@ class _Description4 extends State<Description4> {
                     ),
                   ),
                 ),
-                const SizedBox(height: 100),
+                const SizedBox(height: 50),
                 SizedBox(
                 width: 250,
                 height: 40, 
