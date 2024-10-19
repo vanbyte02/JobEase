@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Employee/CreateVacancy/Metro.dart';
-import 'package:jobease/Employee/CreateVacancy/Nationality.dart';
-import 'package:jobease/Employee/CreateVacancy/WorkPermit.dart';
 
+//Экран создания резюме
 class CreateVacancy extends StatefulWidget {
   @override
   _CreateVacancyState createState() => _CreateVacancyState();
@@ -27,7 +25,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
   }
 
   double _getProgress() {
-    return (_currentStep + 1) / 5;
+    return (_currentStep + 1) / 4;
   }
 
   @override
@@ -96,195 +94,6 @@ class _CreateVacancyState extends State<CreateVacancy> {
                 ),
 
                 //2
-                SingleChildScrollView(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Center(
-                        child: Text(
-                          "Основная информация о вас",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Color.fromARGB(255, 88, 87, 91),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      const TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Фамилия',
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      const TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Имя',
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      const TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Отчество',
-                        ),
-                      ),
-                      const SizedBox(height: 30),
-                      const Text(
-                        "Пол",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 88, 87, 91),
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Row(
-                        children: [
-                          Radio(
-                              value: 'Мужской',
-                              groupValue: _selectedValue,
-                              onChanged: (value) {
-                                setState(() {
-                                  _selectedValue = value as String;
-                                  _selectedEducationLevel = value;
-                                });
-                              },
-                            ),
-                          const Text('Мужской'),
-                          const SizedBox(width: 10),
-                          Radio(
-                              value: 'Женский',
-                              groupValue: _selectedValue,
-                              onChanged: (value) {
-                                setState(() {
-                                  _selectedValue = value as String;
-                                  _selectedEducationLevel = value;
-                                });
-                              },
-                            ),
-                          const Text('Женский'),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      const TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Дата рождения',
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      const TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Электронная почта',
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      const TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Номер телефона',
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      const TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Город проживания',
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Row(
-                        children: [
-                          IconButton(
-                            icon: const Icon(
-                              Icons.control_point, 
-                              size: 20
-                              ),
-                            onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Metro()
-                                ),
-                              );   
-                            },
-                          ),
-                          const SizedBox(width: 5),
-                          const Text('Добавить метро',
-                            style: TextStyle(fontSize: 15),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 20),
-                      const Text(
-                        'Гражданство',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 88, 87, 91),
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Row(
-                        children: [
-                          IconButton(
-                            icon: const Icon(
-                              Icons.control_point, 
-                              size: 20
-                              ),
-                            onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Nationality()
-                                ),
-                              );   
-                            },
-                          ),
-                          const SizedBox(width: 5),
-                          const Text('Добавить гражданство',
-                            style: TextStyle(fontSize: 15),
-                          ),
-                        ],
-                      ),
-                      const Divider(
-                        color: Color.fromARGB(255, 88, 87, 91),
-                        height: 5,
-                        thickness: 1,
-                      ),
-                      const SizedBox(height: 25),
-                      const Text(
-                        'Разрешение на работу',
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 88, 87, 91),
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Row(
-                        children: [
-                          IconButton(
-                            icon: const Icon(
-                              Icons.control_point, 
-                            size: 20
-                            ),
-                            onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => WorkPermit()
-                                ),
-                              );   
-                            },
-                          ),
-                          const SizedBox(width: 5),
-                          const Text('Добавить разрешение',
-                            style: TextStyle(fontSize: 15),
-                          ),
-                        ],
-                      ),
-                      const Divider(
-                        color: Color.fromARGB(255, 88, 87, 91),
-                        height: 5,
-                        thickness: 1,
-                      ),
-                    ],
-                  ),
-                ),
-
-                //3
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
@@ -418,7 +227,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
                   ),
                 ),
 
-                //4
+                //3
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
@@ -439,7 +248,10 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           Row(
                         children: [
                           IconButton(
-                            icon: const Icon(Icons.control_point, size: 20),
+                            icon: const Icon(
+                              Icons.control_point, 
+                              size: 20
+                              ),
                             onPressed: () {},
                           ),
                           const SizedBox(width: 5),
@@ -454,7 +266,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
                   ),
                 ),
 
-                //5
+                //4
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(

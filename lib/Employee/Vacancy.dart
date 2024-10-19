@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Communication.dart';
-import 'package:jobease/Employee/Employee.dart';
+import 'package:jobease/Employee/Profile.dart';
 import 'package:jobease/Employee/Saved.dart';
 
 
@@ -98,7 +98,7 @@ class _VacancyState extends State<Vacancy> {
             ),
           ],
         ),
-        width: 290,
+        width: 340,
         height: 250,
         child: Stack(
           children: [
@@ -209,7 +209,7 @@ class _VacancyState extends State<Vacancy> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Employee()
+                  MaterialPageRoute(builder: (context) => const Profile()
                         ),
                       );   
                     },

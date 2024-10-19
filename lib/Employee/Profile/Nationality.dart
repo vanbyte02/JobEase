@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-
+//Выбор гражданства
 class Nationality extends StatefulWidget {
   const Nationality({super.key});
 
