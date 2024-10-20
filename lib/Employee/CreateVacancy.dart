@@ -228,76 +228,66 @@ class _CreateVacancyState extends State<CreateVacancy> {
                 ),
 
                 //3
-                Padding(
+                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Center(
-                        child: Text(
+                         const Text(
                           "Где вы учились?",
                           style: TextStyle(
                             fontSize: 20,
                             color: Color.fromARGB(255, 88, 87, 91),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 20),
-                      Column(
-                        children: [
-                          Row(
-                        children: [
-                          IconButton(
-                            icon: const Icon(
-                              Icons.control_point, 
-                              size: 20
-                              ),
-                            onPressed: () {},
+                        const SizedBox(height: 30),
+                        ListTile(
+                title: const Text(
+                  "Опыт работы",
+                  style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 88, 87, 91),
+                           ),
                           ),
-                          const SizedBox(width: 5),
-                          const Text('Добавить учебное заведение',
-                            style: TextStyle(fontSize: 15),
+                        leading: const Icon(
+                          Icons.control_point, 
+                          size: 20
                           ),
-                        ],
-                      ),
-                        ],
-                      ),
+                        onTap: (){}
+                      ),  
                     ],
                   ),
                 ),
+
 
                 //4
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Center(
-                        child: Text(
+                         const Text(
                           "Опыт работы",
                           style: TextStyle(
                             fontSize: 20,
                             color: Color.fromARGB(255, 88, 87, 91),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 20),
-                      Column(
-                        children: [
-                          Row(
-                        children: [
-                          IconButton(
-                            icon: const Icon(Icons.control_point, size: 20),
-                            onPressed: () {},
+                        const SizedBox(height: 30),
+                        ListTile(
+                    title: const Text(
+                      "Опыт работы",
+                      style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 88, 87, 91),
+                           ),
                           ),
-                          const SizedBox(width: 5),
-                          const Text('Добавить опыт работы',
-                            style: TextStyle(fontSize: 15),
+                        leading: const Icon(
+                          Icons.control_point,
+                          size: 20
                           ),
-                        ],
-                      ),
-                        ],
-                      ),
+                        onTap: (){}
+                      ),  
                     ],
                   ),
                 ),

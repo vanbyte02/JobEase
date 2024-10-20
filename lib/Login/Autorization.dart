@@ -100,7 +100,7 @@ class _AutorizationState extends State<Autorization> {
                   ],
                 ),
                 const SizedBox(height: 30),
-                SizedBox(
+                Container(
                 width: 250,
                 height: 40, 
               child: ElevatedButton(

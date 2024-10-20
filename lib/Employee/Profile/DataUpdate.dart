@@ -125,27 +125,26 @@ class _DataUpdateState extends State<DataUpdate > {
                         ),
                       ),
                       const SizedBox(height: 5),
-                      Row(
-                        children: [
-                          IconButton(
-                            icon: const Icon(
-                              Icons.control_point, 
-                              size: 20
-                              ),
-                            onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Metro()
-                                ),
-                              );   
-                            },
+                      ListTile(
+                    title: const Text(
+                      "Добавить метро",
+                      style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 88, 87, 91),
+                           ),
                           ),
-                          const SizedBox(width: 5),
-                          const Text('Добавить метро',
-                            style: TextStyle(fontSize: 15),
+                        leading: const Icon(
+                          Icons.control_point,
+                          size: 20
                           ),
-                        ],
-                      ),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Metro()
+                                  ),
+                                );   
+                              },
+                      ),  
                       const SizedBox(height: 20),
                       const Text(
                         'Гражданство',
@@ -155,27 +154,26 @@ class _DataUpdateState extends State<DataUpdate > {
                         ),
                       ),
                       const SizedBox(height: 5),
-                      Row(
-                        children: [
-                          IconButton(
-                            icon: const Icon(
-                              Icons.control_point, 
-                              size: 20
-                              ),
-                            onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Nationality()
-                                ),
-                              );   
-                            },
+                      ListTile(
+                    title: const Text(
+                      "Добавить гражданство",
+                      style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 88, 87, 91),
+                           ),
                           ),
-                          const SizedBox(width: 5),
-                          const Text('Добавить гражданство',
-                            style: TextStyle(fontSize: 15),
+                        leading: const Icon(
+                          Icons.control_point,
+                          size: 20
                           ),
-                        ],
-                      ),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Nationality()
+                                  ),
+                                );   
+                              },
+                            ),  
                       const Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                         height: 5,

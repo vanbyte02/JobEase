@@ -3,7 +3,6 @@ import 'package:jobease/Login/Autorization.dart';
 import 'package:jobease/Login/Registration.dart';
 
 //Экраны с описанием приложения
-
 class Description extends StatefulWidget {
   const Description({Key? key}) : super(key: key);
 
@@ -53,7 +52,7 @@ class _DescriptionState extends State<Description> {
             },
           ),
           Positioned(
-            top: 600,
+            top: 650,
             left: 20,
             right: 20,
             child: Container(
@@ -312,7 +311,7 @@ class _Description3 extends State<Description3> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                SizedBox(
+                Container(
                   width: 250,
                   height: 40,
                   child: ElevatedButton(
@@ -396,7 +395,7 @@ class _Description4 extends State<Description4> {
                   ),
                 ),
                 const SizedBox(height: 50),
-                SizedBox(
+                Container(
                 width: 250,
                 height: 40, 
               child: ElevatedButton(
@@ -422,12 +421,12 @@ class _Description4 extends State<Description4> {
                     ),
                 ),
                  const SizedBox(height: 24),
-                SizedBox(
+                Container(
                 width: 250,
                 height: 40, 
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 245, 240, 240),
+                      backgroundColor: const Color.fromARGB(255, 247, 247, 247),
                       shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(6), 
                     ),

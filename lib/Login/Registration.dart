@@ -87,14 +87,16 @@ class _RegistrationState extends State<Registration> {
                     ],
                   ),
                 const SizedBox(height: 15),
-                SizedBox(
+                Container(
                 width: 250,
                 height: 40, 
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                       backgroundColor:  const Color.fromARGB(255, 74, 187, 80),
                       shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6), 
+                        
+                      borderRadius: BorderRadius.circular(6),
+                      
                     ),
                   ),
                   child: const Text(

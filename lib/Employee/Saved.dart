@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Communication.dart';
-import 'package:jobease/Employee/Profile.dart';
+import 'package:jobease/Employee/Account.dart';
 import 'package:jobease/Employee/Vacancy.dart';
 
 //Экран с сохраненными вакансиями
@@ -135,7 +135,7 @@ class _SavedState extends State<Saved> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Profile()
+                  MaterialPageRoute(builder: (context) => const Account()
                         ),
                       );   
                     },

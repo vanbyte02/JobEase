@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Communication.dart';
-import 'package:jobease/Employee/Profile.dart';
+import 'package:jobease/Employee/Account.dart';
 import 'package:jobease/Employee/Saved.dart';
 
 
@@ -209,7 +209,7 @@ class _VacancyState extends State<Vacancy> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Profile()
+                  MaterialPageRoute(builder: (context) => const Account()
                         ),
                       );   
                     },

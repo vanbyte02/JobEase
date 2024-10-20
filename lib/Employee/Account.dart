@@ -1,70 +1,109 @@
 import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Communication.dart';
 import 'package:jobease/Employee/CreateVacancy.dart';
-import 'package:jobease/Employee/Profile/DataUpdate.dart';
+import 'package:jobease/Employee/Profile/Setting.dart';
 import 'package:jobease/Employee/Saved.dart';
 import 'package:jobease/Employee/Vacancy.dart';
+import 'package:jobease/Login/Autorization.dart';
 
 const List<String> vibor = <String>['Активно ищу работу', 'Рассматриваю предложения', 'Предложили работу, пока думаю', 'Не ищу работу'];
 final List<String> entries1 = <String>['Программист 1C', 'Frontend-разработчик', 'backend-разработчик'];
 
 
-//Экран профиля
-class Profile extends StatefulWidget {
-  const Profile({super.key});
+//Экран акаунта
+class Account extends StatefulWidget {
+  const Account({super.key});
 
   @override
-  _ProfileState createState() => _ProfileState();
+  _AccountState createState() => _AccountState();
 }
 
-class _ProfileState extends State<Profile> {
+class _AccountState extends State<Account> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 242, 242, 242),
+      appBar: AppBar(
+    backgroundColor: const Color.fromARGB(255, 242, 242, 242),
+  ),
+   drawer: Drawer(
+          child:  Column(
+            children:[
+              Container(
+              margin: const EdgeInsets.only(top: 20, bottom: 30),
+              width: 80,
+              height: 80,
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Color.fromARGB(255, 74, 187, 80),
+              ),
+              child: const Center(
+                child: Text(
+                  'EJ',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            ListTile(
+              title: const Text(
+                "О себе"
+                ),
+                leading: const Icon(
+                  Icons.account_box
+                  ),
+              onTap: (){}
+            ),
+            ListTile(
+                title: const Text(
+                  "Настройки"
+                  ),
+                leading: const Icon(
+                  Icons.settings
+                  ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Setting()),
+                  );
+                },
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 390),
+                width: 100,
+                height: 40, 
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6), 
+                    ),
+                  ),
+                  child: const Text(
+                    'Выход',
+                    style: TextStyle(
+                    fontSize: 14, 
+                    color: Colors.white
+                    ),
+                   ),
+              onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Autorization()),
+                  );
+                },
+                  ),
+                ),
+            ],
+      ),
+    ),
+  backgroundColor: const Color.fromARGB(255, 242, 242, 242),
       body: SingleChildScrollView(
         child: Column(
           children: [ 
-            const SizedBox(height: 10),
-                Row(
-                children: [
-                  Padding(
-                      padding: EdgeInsets.only(left: 10),
-                  child: IconButton(
-                    icon: const Icon(
-                      Icons.menu, 
-                      size: 30
-                    ),
-                    onPressed: () {},
-                    ),
-                  ),
-                    Padding(
-                      padding: EdgeInsets.only(left:190, right: 10),
-                       child: Positioned(
-                      top: 25,
-                      right: 15,
-                      child: TextButton(
-                        onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const DataUpdate(),
-                                  ),
-                                );
-                              },
-                    child: const Text(
-                      'Профиль',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 20, 
-                      ),
-                    ),
-                  ),
-                ),
-                      )
-              ],
-            ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 5),
             Row(
             children: [
             const SizedBox(width: 50),
@@ -110,7 +149,7 @@ class _ProfileState extends State<Profile> {
                 ),
               ],
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 30),
             Container(
               width: 300,
               height: 70,
@@ -171,7 +210,6 @@ class _ProfileState extends State<Profile> {
                 separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 20),
               ),
             ),
-            const SizedBox(height: 20),
             SizedBox(
                 width: 270,
                 height: 40, 
@@ -253,6 +291,8 @@ class _ProfileState extends State<Profile> {
   }
 }
 
+
+
 class DropdownMenuExample extends StatefulWidget {
   const DropdownMenuExample({super.key});
 
@@ -265,15 +305,26 @@ class _DropdownMenuExampleState extends State<DropdownMenuExample> {
 
   @override
   Widget build(BuildContext context) {
-    return DropdownMenu<String>(
-      initialSelection: vibor.first,
-      onSelected: (String? value) {
+    return DropdownButton<String>(
+      value: dropdownValue,
+      style: const TextStyle(
+        color: Color.fromARGB(255, 88, 87, 91),
+        fontSize: 16
+        ),
+      underline: Container(
+        height: 2,
+        color: const Color.fromARGB(255, 247, 247, 247),
+      ),
+      onChanged: (String? value) {
         setState(() {
           dropdownValue = value!;
         });
       },
-      dropdownMenuEntries: vibor.map<DropdownMenuEntry<String>>((String value) {
-        return DropdownMenuEntry<String>(value: value, label: value);
+      items: vibor.map<DropdownMenuItem<String>>((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
       }).toList(),
     );
   }
