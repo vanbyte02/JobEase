@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Communication.dart';
 import 'package:jobease/Employee/CreateVacancy.dart';
+import 'package:jobease/Employee/Profile/Profile.dart';
 import 'package:jobease/Employee/Profile/Setting.dart';
 import 'package:jobease/Employee/Saved.dart';
 import 'package:jobease/Employee/Vacancy.dart';
@@ -54,7 +55,12 @@ class _AccountState extends State<Account> {
                 leading: const Icon(
                   Icons.account_box
                   ),
-              onTap: (){}
+              onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Profile()),
+                  );
+                },
             ),
             ListTile(
                 title: const Text(

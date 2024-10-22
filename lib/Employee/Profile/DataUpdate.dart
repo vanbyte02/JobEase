@@ -35,7 +35,7 @@ class _DataUpdateState extends State<DataUpdate > {
                       Navigator.pop(context);
                     },
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: 45),
                   const  Center(
                         child: Text(
                           "Основная информация о вас",

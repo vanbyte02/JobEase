@@ -52,7 +52,7 @@ class _DescriptionState extends State<Description> {
             },
           ),
           Positioned(
-            top: 650,
+            top: 600,
             left: 20,
             right: 20,
             child: Container(
