@@ -114,7 +114,7 @@ class _AccountState extends State<Account> {
             const SizedBox(height: 5),
             Row(
             children: [
-            const SizedBox(width: 50),
+            const SizedBox(width: 40),
              Column(
                 children: [
                   Container(

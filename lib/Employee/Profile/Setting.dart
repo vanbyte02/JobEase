@@ -13,24 +13,28 @@ class _SettingState extends State<Setting> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+       appBar: AppBar(
+    backgroundColor: const Color.fromARGB(255, 242, 242, 242),
+    leading: IconButton(
+         icon: const Icon(
+             Icons.arrow_back_ios, 
+              size: 25
+               ),
+              onPressed: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Account()
+          ),
+        );   
+      },
+    ),
+   ),
   backgroundColor: const Color.fromARGB(255, 242, 242, 242),
       body: SingleChildScrollView(
         child:  Column(
           children: [
             const SizedBox(height: 30, width: 60),
-                IconButton(
-                      icon: const Icon(
-                      Icons.arrow_back_ios, 
-                      size: 25
-                     ),
-                      onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Account()
-                  ),
-                );   
-              },
-            ),
+                
           ],
         ),
       ),

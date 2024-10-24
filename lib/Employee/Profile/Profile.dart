@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jobease/Employee/Account.dart';
 import 'package:jobease/Employee/Profile/DataUpdate.dart';
-
-
 
 
 
@@ -17,24 +16,31 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       appBar: AppBar(
+    backgroundColor: const Color.fromARGB(255, 242, 242, 242),
+   leading: IconButton(
+         icon: const Icon(
+             Icons.arrow_back_ios, 
+              size: 25
+               ),
+              onPressed: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Account()
+          ),
+        );   
+      },
+    ),
+   ),
   backgroundColor: const Color.fromARGB(255, 242, 242, 242),
       body: SingleChildScrollView(
         child: Column(
           children: [
-             IconButton(
-                      icon: const Icon(
-                      Icons.arrow_back_ios, 
-                      size: 20
-                     ),
-                      onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
             SizedBox(height: 20),
             Center(
               child: Row(
               children: [
-                SizedBox(width: 60),
+                SizedBox(width: 20),
                 Container(
                   width: 120,
                  height: 120,
@@ -49,17 +55,17 @@ class _ProfileState extends State<Profile> {
                     ],
                   ),
                 ),
-                SizedBox(width: 20),
+                SizedBox(width: 10),
                 Column(
                   children: [
                     SizedBox(
-                width: 250,
+                width: 200,
                 height: 30,
                 child: ListTile(
                     title: const Text(
                       "Редактировать",
                       style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 16,
                             color: Color.fromARGB(255, 88, 87, 91),
                            ),
                           ),
@@ -76,15 +82,15 @@ class _ProfileState extends State<Profile> {
                               },
                       ),  
                  ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 10),
                 SizedBox(
-                  width: 250,
+                  width: 200,
                   height: 30,
                 child: ListTile(
                     title: const Text(
                       "Изменить фото",
                       style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 16,
                             color: Color.fromARGB(255, 88, 87, 91),
                            ),
                           ),
