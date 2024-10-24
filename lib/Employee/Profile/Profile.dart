@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Profile/DataUpdate.dart';
 
+
+
+
+
 //Экран профиля
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -17,7 +21,21 @@ class _ProfileState extends State<Profile> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-             Container(
+             IconButton(
+                      icon: const Icon(
+                      Icons.arrow_back_ios, 
+                      size: 20
+                     ),
+                      onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+            SizedBox(height: 20),
+            Center(
+              child: Row(
+              children: [
+                SizedBox(width: 60),
+                Container(
                   width: 120,
                  height: 120,
                   decoration:  BoxDecoration(
@@ -31,7 +49,13 @@ class _ProfileState extends State<Profile> {
                     ],
                   ),
                 ),
-                ListTile(
+                SizedBox(width: 20),
+                Column(
+                  children: [
+                    SizedBox(
+                width: 250,
+                height: 30,
+                child: ListTile(
                     title: const Text(
                       "Редактировать",
                       style: TextStyle(
@@ -41,7 +65,7 @@ class _ProfileState extends State<Profile> {
                           ),
                         leading: const Icon(
                           Icons.create,
-                          size: 20
+                          size: 16
                           ),
                         onTap: (){
                           Navigator.push(
@@ -51,7 +75,12 @@ class _ProfileState extends State<Profile> {
                                 );   
                               },
                       ),  
-                      ListTile(
+                 ),
+                  SizedBox(height: 15),
+                SizedBox(
+                  width: 250,
+                  height: 30,
+                child: ListTile(
                     title: const Text(
                       "Изменить фото",
                       style: TextStyle(
@@ -61,120 +90,126 @@ class _ProfileState extends State<Profile> {
                           ),
                         leading: const Icon(
                           Icons.add_photo_alternate,
-                          size: 20
+                          size: 17
                           ),
-                        onTap: (){},
-                      ),  
-                      const Text(
-                        textAlign: TextAlign.left,
+                        onTap: (){
+                          //getImages(); 
+                        },
+                      ), 
+                    ), 
+                  ],
+                )
+              ],
+            ),
+            ),
+            const SizedBox(height: 20),
+            const Padding(
+              padding: EdgeInsets.symmetric( horizontal: 20),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
                         'Фамилия',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                           color: Color.fromARGB(255, 88, 87, 91),
+                          ),
                         ),
-                      ),
+                      const SizedBox(height: 2),
                       const Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                         height: 5,
                         thickness: 1,
-                        indent: 15, 
-                        endIndent: 15,
                       ),
                       const SizedBox(height: 20),
                       const Text(
                         'Имя',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
+                      const SizedBox(height: 2),
                       const Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                         height: 5,
                         thickness: 1,
-                        indent: 15, 
-                        endIndent: 15,
                       ),
                       const SizedBox(height: 20),
                       const Text(
                         'Отчество',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
-                      const Divider(
+                      const SizedBox(height: 2),
+                       Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                         height: 5,
                         thickness: 1,
-                        indent: 15, 
-                        endIndent: 15,
-                      ),
-                      const SizedBox(height: 30),
-                      const Text(
-                        "Пол: Мужской",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Color.fromARGB(255, 88, 87, 91),
-                        ),
-                      ),
-                      const Divider(
-                        color: Color.fromARGB(255, 88, 87, 91),
-                        height: 5,
-                        thickness: 1,
-                        indent: 15, 
-                        endIndent: 15,
                       ),
                       const SizedBox(height: 20),
                       const Text(
-                        'Дата рождения :',
+                        "Пол: ",
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
+                      const SizedBox(height: 2),
                       const Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                         height: 5,
                         thickness: 1,
-                        indent: 15, 
-                        endIndent: 15,
+                      ),
+                      const SizedBox(height: 20),
+                      const Text(
+                        'Дата рождения:',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Color.fromARGB(255, 88, 87, 91),
+                        ),
+                      ),
+                      const SizedBox(height: 2),
+                      const Divider(
+                        color: Color.fromARGB(255, 88, 87, 91),
+                        height: 5,
+                        thickness: 1,
                       ),
                       const SizedBox(height: 20),
                       const Text(
                         'Электронная почта: ',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
+                      const SizedBox(height: 2),
                       const Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                         height: 5,
                         thickness: 1,
-                        indent: 15, 
-                        endIndent: 15,
                       ),
                       const SizedBox(height: 20),
                       const Text(
                         'Номер телефона:',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
+                      const SizedBox(height: 2),
                       const Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                         height: 5,
                         thickness: 1,
-                        indent: 15, 
-                        endIndent: 15,
                       ),
                       const SizedBox(height: 20),
                       const Text(
                         'Город проживания: ',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
@@ -183,32 +218,35 @@ class _ProfileState extends State<Profile> {
                         'Метро: ',
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
+                      const SizedBox(height: 2),
                       const Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                         height: 5,
                         thickness: 1,
-                        indent: 15, 
-                        endIndent: 15,
                       ),
                       const SizedBox(height: 20),
                       const Text(
                         'Гражданство:',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
-                      ), 
+                      ),
+                      const SizedBox(height: 2), 
                       const Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                        height: 5,
                         thickness: 1,
-                        indent: 15, 
-                        endIndent: 15,
                       ),
+                      SizedBox(height: 20),
+                  ],
+                )
+),
+
           ]
         ),
       ),

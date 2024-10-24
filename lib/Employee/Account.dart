@@ -76,8 +76,9 @@ class _AccountState extends State<Account> {
                   );
                 },
               ),
-              Container(
-                margin: const EdgeInsets.only(top: 390),
+               Padding(
+              padding: EdgeInsets.only(top: 300),
+              child: SizedBox(
                 width: 100,
                 height: 40, 
               child: ElevatedButton(
@@ -102,6 +103,7 @@ class _AccountState extends State<Account> {
                 },
                   ),
                 ),
+              ),
             ],
       ),
     ),

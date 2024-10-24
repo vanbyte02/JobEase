@@ -129,13 +129,13 @@ class _DataUpdateState extends State<DataUpdate > {
                     title: const Text(
                       "Добавить метро",
                       style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 16,
                             color: Color.fromARGB(255, 88, 87, 91),
                            ),
                           ),
                         leading: const Icon(
                           Icons.control_point,
-                          size: 20
+                          size: 15
                           ),
                         onTap: (){
                           Navigator.push(
@@ -149,7 +149,7 @@ class _DataUpdateState extends State<DataUpdate > {
                       const Text(
                         'Гражданство',
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 16,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
@@ -158,13 +158,13 @@ class _DataUpdateState extends State<DataUpdate > {
                     title: const Text(
                       "Добавить гражданство",
                       style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 16,
                             color: Color.fromARGB(255, 88, 87, 91),
                            ),
                           ),
                         leading: const Icon(
                           Icons.control_point,
-                          size: 20
+                          size: 16
                           ),
                         onTap: (){
                           Navigator.push(
