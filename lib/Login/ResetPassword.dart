@@ -67,20 +67,27 @@ class _ResetPasswordState extends State<ResetPassword> {
                 const Row(
                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Divider(
-                      color: Colors.black,
-                      height: 5,
-                      thickness: 1,
+                    SizedBox(
+                    width: 160,
+                      child: Divider(
+                        color: Color.fromARGB(255, 183, 179, 193),
+                      ),
                     ),
+                SizedBox(width: 10),
+                SizedBox(height: 10),
                  Text('Или',
                 style: TextStyle(
                     fontSize: 12,
                     color: Color.fromARGB(255, 88, 87, 91),
-                    fontWeight: FontWeight.bold,),),
-                    Divider(
-                      color: Colors.black,
-                      height: 5,
-                      thickness: 1,
+                    fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    SizedBox(
+                    width: 160,
+                      child: Divider(
+                        color: Color.fromARGB(255, 183, 179, 193),
+                      ),
                     ),
                   ], 
                 ),
@@ -88,7 +95,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Вернуться ко",
+                    const Text("Вернуться к",
                     style: TextStyle(
                     fontSize: 13,
                     color:  Color.fromARGB(255, 88, 87, 91),
@@ -153,4 +160,59 @@ Future<void> _dialogBuilder(BuildContext context) {
       );
     },
   );
+}
+
+
+
+class ResetPassword2 extends StatefulWidget {
+ 
+  const ResetPassword2({super.key,});
+
+  @override
+  _ResetPassword2State createState() => _ResetPassword2State();
+}
+
+
+class _ResetPassword2State extends State<ResetPassword> {
+  
+ @override
+  Widget build(BuildContext context) {
+    return  MaterialApp(
+      home:  Scaffold(
+        backgroundColor: Color.fromARGB(255, 242, 242, 242),
+        body:  Center(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  'Забыли пароль?',
+                  style: TextStyle(
+                    fontSize: 24,
+                    color:  Color.fromARGB(255, 88, 87, 91),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 100),
+                SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: TextField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                ),
+                ),
+                 
+                const SizedBox(height: 40),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

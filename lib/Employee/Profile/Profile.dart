@@ -110,7 +110,7 @@ class _ProfileState extends State<Profile> {
             ),
             const SizedBox(height: 20),
             const Padding(
-              padding: EdgeInsets.symmetric( horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

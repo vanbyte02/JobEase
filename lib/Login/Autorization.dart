@@ -130,20 +130,27 @@ class _AutorizationState extends State<Autorization> {
                 const Row(
                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Divider(
-                      color: Colors.black,
-                      height: 5,
-                      thickness: 1,
+                    SizedBox(
+                    width: 160,
+                      child: Divider(
+                        color: Color.fromARGB(255, 183, 179, 193),
+                      ),
                     ),
+                SizedBox(width: 10),
+                SizedBox(height: 10),
                  Text('Или',
                 style: TextStyle(
                     fontSize: 12,
                     color: Color.fromARGB(255, 88, 87, 91),
-                    fontWeight: FontWeight.bold,),),
-                    Divider(
-                      color: Colors.black,
-                      height: 5,
-                      thickness: 1,
+                    fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    SizedBox(
+                    width: 160,
+                      child: Divider(
+                        color: Color.fromARGB(255, 183, 179, 193),
+                      ),
                     ),
                   ], 
                 ),
