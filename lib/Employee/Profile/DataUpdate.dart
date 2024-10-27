@@ -76,6 +76,7 @@ class _DataUpdateState extends State<DataUpdate > {
                       Row(
                         children: [
                           Radio(
+                              activeColor: Color.fromARGB(255, 74, 187, 80),
                               value: 'Мужской',
                               groupValue: _selectedValue,
                               onChanged: (value) {
@@ -88,6 +89,7 @@ class _DataUpdateState extends State<DataUpdate > {
                           const Text('Мужской'),
                           const SizedBox(width: 10),
                           Radio(
+                              activeColor: Color.fromARGB(255, 74, 187, 80),
                               value: 'Женский',
                               groupValue: _selectedValue,
                               onChanged: (value) {

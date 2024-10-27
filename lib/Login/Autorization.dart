@@ -65,6 +65,7 @@ class _AutorizationState extends State<Autorization> {
                     Row(
                       children: [
                          Checkbox(
+                      activeColor: Color.fromARGB(255, 74, 187, 80),
                       value: isChecked,
                       onChanged: (bool? value) {
                         setState(() {
@@ -131,7 +132,7 @@ class _AutorizationState extends State<Autorization> {
                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                    width: 160,
+                    width: 130,
                       child: Divider(
                         color: Color.fromARGB(255, 183, 179, 193),
                       ),
@@ -147,7 +148,7 @@ class _AutorizationState extends State<Autorization> {
                     ),
                     SizedBox(width: 10),
                     SizedBox(
-                    width: 160,
+                    width: 130,
                       child: Divider(
                         color: Color.fromARGB(255, 183, 179, 193),
                       ),

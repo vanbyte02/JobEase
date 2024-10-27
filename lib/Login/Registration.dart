@@ -30,7 +30,7 @@ class _RegistrationState extends State<Registration> {
               children: [
                 const SizedBox(height: 15),
                 const Text(
-                  'Регистрация',
+                  'Создать аккаунт',
                   style: TextStyle(
                     fontSize: 24,
                     color: Color.fromARGB(255, 88, 87, 91),
@@ -70,6 +70,7 @@ class _RegistrationState extends State<Registration> {
                 Row(
                       children: [
                         Checkbox(
+                      activeColor: Color.fromARGB(255, 74, 187, 80),
                       value: isChecked,
                       onChanged: (bool? value) {
                         setState(() {
@@ -120,13 +121,12 @@ class _RegistrationState extends State<Registration> {
                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(
-                    width: 160,
+                    width: 130,
                       child: Divider(
                         color: Color.fromARGB(255, 183, 179, 193),
                       ),
                     ),
                 SizedBox(width: 10),
-                SizedBox(height: 10),
                  Text('Или',
                 style: TextStyle(
                     fontSize: 12,
@@ -136,7 +136,7 @@ class _RegistrationState extends State<Registration> {
                     ),
                     SizedBox(width: 10),
                     SizedBox(
-                    width: 160,
+                    width: 130,
                       child: Divider(
                         color: Color.fromARGB(255, 183, 179, 193),
                       ),

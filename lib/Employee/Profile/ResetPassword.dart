@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Login/Autorization.dart';
+import 'package:jobease/Employee/Profile/Setting.dart';
 import 'package:flutter/services.dart';
 
 
-//Экран восстановление пароля(При регистрации)
+//Экран восстановление пароля(Из настроек)
 class ResetPassword extends StatefulWidget {
  
   const ResetPassword({super.key,});
@@ -12,11 +12,28 @@ class ResetPassword extends StatefulWidget {
   _ResetPasswordState createState() => _ResetPasswordState();
 }
 
-class _ResetPasswordState extends State<ResetPassword> { 
+class _ResetPasswordState extends State<ResetPassword> {
+  
  @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      home:  Scaffold(
+    return  Scaffold(
+      appBar: AppBar(
+    backgroundColor: const Color.fromARGB(255, 242, 242, 242),
+    leading: IconButton(
+         icon: const Icon(
+             Icons.arrow_back_ios, 
+              size: 25
+               ),
+              onPressed: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const Setting()
+          ),
+        );   
+      },
+    ),
+   ),
+      body:  Scaffold(
         backgroundColor: Color.fromARGB(255, 242, 242, 242),
         body:  Center(
           child: Padding(
@@ -322,7 +339,7 @@ class _ResetPassword3State extends State<ResetPassword3> {
               onPressed: () {
                         Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Autorization()
+                  MaterialPageRoute(builder: (context) => const Setting()
                     ),
                   );  
                       },

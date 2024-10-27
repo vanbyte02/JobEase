@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jobease/Login/WelcomeScreen.dart';
-// import 'package:jobease/Employee/Vacancy.dart';
-
 
 void main() {
   runApp(const MyApp());

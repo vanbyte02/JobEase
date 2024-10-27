@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package/flutter_localizations.dart';
 import 'package:jobease/Employee/Account.dart';
+import 'package:jobease/Employee/Profile/ResetPassword.dart';
 
 //Экран Настроек
 class Setting extends StatefulWidget {
@@ -8,6 +10,8 @@ class Setting extends StatefulWidget {
   @override
   _SettingState createState() => _SettingState();
 }
+
+// var _locale = S.en;
 
 class _SettingState extends State<Setting> {
   @override
@@ -35,18 +39,19 @@ class _SettingState extends State<Setting> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children:  [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 15),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
               Text(
                     'Настройки',
+                    // _locale.languageCode.toUpperCase(),
                       style: TextStyle(
                       color: Color.fromARGB(255, 88, 87, 91),
                         fontSize: 30,
                     )
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 70),
                   Text(
                     'Акаунт',
                       style: TextStyle(
@@ -57,16 +62,27 @@ class _SettingState extends State<Setting> {
                   Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                       ),
-                       Text(
-                    'Уведомления',
+                      ListTile(
+                          title: const Text(
+                      "Восстановить пароль",
                       style: TextStyle(
-                      color: Color.fromARGB(255, 88, 87, 91),
-                        fontSize: 24,
-                      ),
-                  ),
-                  Divider(
-                        color: Color.fromARGB(255, 88, 87, 91),
-                      ),
+                            fontSize: 16,
+                            color: Color.fromARGB(255, 88, 87, 91),
+                           ),
+                          ),
+                          trailing: const Icon(
+                          Icons.navigate_next,
+                          size: 25
+                          ),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => ResetPassword()
+                                  ),
+                                );   
+                              },
+                      ), 
+                      SizedBox(height: 30), 
                        Text(
                     'Системные',
                       style: TextStyle(
@@ -96,21 +112,7 @@ class _SettingState extends State<Setting> {
                                   ),
                                 );   
                               },
-                      ),  
-                      ListTile(
-                        title: const Text(
-                        "Страна",
-                        style: TextStyle(
-                              fontSize: 16,
-                              color: Color.fromARGB(255, 88, 87, 91),
-                            ),
-                            ),
-                            trailing: const Icon(
-                           Icons.keyboard_arrow_right,
-                          size: 25
-                          ),
-                        onTap: (){},
-                      ),  
+                            ), 
                 ],
               )
             ),   
@@ -135,8 +137,7 @@ class Language extends StatefulWidget {
 
 class _LanguageState extends State<Language> {
    
-  String _selectedEducationLevel = ''; 
-  String _selectedValue = '';
+  String _selectedValue = 'Русский';
   
   @override
   Widget build(BuildContext context) {
@@ -148,57 +149,61 @@ class _LanguageState extends State<Language> {
              Icons.arrow_back_ios, 
               size: 25
                ),
-              onPressed: () {
-            Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const Account()
-          ),
-        );   
-      },
-    ),
-   ),
-  backgroundColor: const Color.fromARGB(255, 242, 242, 242),
-      body: Column(
-        children: [
-                    Column(
-                        children: [
-                          Row(
-                            children: [
-                              Radio(
-                              value: 'Мужской',
+               onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+            backgroundColor: const Color.fromARGB(255, 242, 242, 242),
+                body: Column(
+                  children: [
+                    SizedBox(height: 150),
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Radio(
+                              activeColor: Color.fromARGB(255, 74, 187, 80),
+                              value: 'Русский',
                               groupValue: _selectedValue,
                               onChanged: (value) {
                                 setState(() {
                                   _selectedValue = value as String;
-                                  _selectedEducationLevel = value;
                                 });
                               },
                             ),
-                          const Text('Мужской'),
-                          const SizedBox(width: 10),
-                          Radio(
-                              value: 'Женский',
+                        const Text('Русский',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color:  Color.fromARGB(255, 88, 87, 91),
+                          ),                        
+                        ),
+                      ],
+                     ),
+                     SizedBox(height: 20),
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Radio(
+                              activeColor: Color.fromARGB(255, 74, 187, 80),
+                              value: 'Английский',
                               groupValue: _selectedValue,
                               onChanged: (value) {
                                 setState(() {
                                   _selectedValue = value as String;
-                                  _selectedEducationLevel = value;
+                                  
                                 });
                               },
                             ),
-                          const Text('Женский'),
-                            ],
-                          )
-                        ],
-                      ),
-                
+                        const Text('Английский',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color:  Color.fromARGB(255, 88, 87, 91),
+                          ),  
+                        ),
+                      ],
+                    ),
         ],
-      )
+      ), 
     );
   }
 }
-
-
-
-
-

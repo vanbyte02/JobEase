@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jobease/Employee/Account.dart';
+import 'package:jobease/Employee/Profile/Specializations.dart';
 
 //Экран создания резюме
 class CreateVacancy extends StatefulWidget {
@@ -9,7 +11,6 @@ class CreateVacancy extends StatefulWidget {
 class _CreateVacancyState extends State<CreateVacancy> {
   final PageController _pageController = PageController();
   int _currentStep = 0;
-  String _selectedEducationLevel = '';
   String _selectedValue = '';
 
   void _nextPage() {
@@ -21,6 +22,15 @@ class _CreateVacancyState extends State<CreateVacancy> {
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
+    }
+    if(_currentStep == 4) {
+      setState(() {
+        Navigator.push(
+          context,
+            MaterialPageRoute(builder: (context) => Account()
+          ),
+        );
+      });
     }
   }
 
@@ -49,7 +59,7 @@ class _CreateVacancyState extends State<CreateVacancy> {
           Expanded(
             child: PageView(
               controller: _pageController,
-              physics: const NeverScrollableScrollPhysics(),
+              physics: NeverScrollableScrollPhysics(),
               children: [
                 Padding(
                   padding: const EdgeInsets.all(16),
@@ -64,15 +74,26 @@ class _CreateVacancyState extends State<CreateVacancy> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Поиск',
-                          prefixIcon: const Icon(Icons.search),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
+                      ListTile(
+                    title: const Text(
+                      "Добавьте профессию",
+                      style: TextStyle(
+                            fontSize: 20,
+                            color: Color.fromARGB(255, 88, 87, 91),
+                           ),
                           ),
-                        ),
-                      ),
+                        leading: const Icon(
+                          Icons.control_point,
+                          size: 20
+                          ),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Specializations()
+                                  ),
+                                );   
+                              },
+                      ),  
                       const SizedBox(height: 70),
                       const Center(
                         child: Text(
@@ -114,12 +135,12 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ListTile(
                             title: const Text('Среднее'),
                             leading: Radio(
+                              activeColor: const Color.fromARGB(255, 74, 187, 80),
                               value: 'Среднее',
                               groupValue: _selectedValue,
                               onChanged: (value) {
                                 setState(() {
                                   _selectedValue = value as String;
-                                  _selectedEducationLevel = value ;
                                 });
                               },
                             ),
@@ -127,12 +148,12 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ListTile(
                             title: const Text('Среднее специальное'),
                             leading: Radio(
+                              activeColor: const Color.fromARGB(255, 74, 187, 80),
                               value: 'Среднее специальное',
                               groupValue: _selectedValue,
                               onChanged: (value) {
                                 setState(() {
                                   _selectedValue = value as String;
-                                  _selectedEducationLevel = value;
                                 });
                                 
                               },
@@ -141,12 +162,12 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ListTile(
                             title: const Text('Неоконченное высшее'),
                             leading: Radio(
+                              activeColor: const Color.fromARGB(255, 74, 187, 80),
                               value: 'Неоконченное высшее',
                               groupValue: _selectedValue,
                               onChanged: (value) {
                                 setState(() {
                                   _selectedValue = value as String;
-                                  _selectedEducationLevel = value;
                                 });
                                 
                               },
@@ -155,12 +176,12 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ListTile(
                             title: const Text('Высшее'),
                             leading: Radio(
+                              activeColor: const Color.fromARGB(255, 74, 187, 80),
                               value: 'Высшее',
                               groupValue: _selectedValue,
                               onChanged: (value) {
                                 setState(() {
                                   _selectedValue = value as String;
-                                  _selectedEducationLevel = value;
                                 });
                                 
                               },
@@ -169,12 +190,12 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ListTile(
                             title: const Text('Бакалавр'),
                             leading: Radio(
+                              activeColor: const Color.fromARGB(255, 74, 187, 80),
                               value: 'Бакалавр',
                               groupValue: _selectedValue,
                               onChanged: (value) {
                                 setState(() {
                                   _selectedValue = value as String;
-                                  _selectedEducationLevel = value;
                                 });
                                 
                               },
@@ -183,12 +204,12 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ListTile(
                             title: const Text('Магистр'),
                             leading: Radio(
+                              activeColor: const Color.fromARGB(255, 74, 187, 80),
                               value: 'Магистр',
                               groupValue: _selectedValue,
                               onChanged: (value) {
                                 setState(() {
                                   _selectedValue = value as String;
-                                  _selectedEducationLevel = value;
                                 });
                                 
                               },
@@ -197,12 +218,12 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ListTile(
                             title: const Text('Кандидат наук'),
                             leading: Radio(
+                              activeColor: const Color.fromARGB(255, 74, 187, 80),
                               value: 'Кандидат наук',
                               groupValue : _selectedValue,
                               onChanged: (value) {
                                 setState(() {
                                   _selectedValue = value as String;
-                                  _selectedEducationLevel = value;
                                 });
                                
                               },
@@ -211,12 +232,12 @@ class _CreateVacancyState extends State<CreateVacancy> {
                           ListTile(
                             title: const Text('Доктор наук'),
                             leading: Radio(
+                              activeColor: const Color.fromARGB(255, 74, 187, 80),
                               value: 'Доктор наук',
                               groupValue: _selectedValue,
                               onChanged: (value) {
                                 setState(() {
                                   _selectedValue = value as String;
-                                  _selectedEducationLevel = value;
                                 });
                               },
                             ),
@@ -240,10 +261,10 @@ class _CreateVacancyState extends State<CreateVacancy> {
                             color: Color.fromARGB(255, 88, 87, 91),
                           ),
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 40),
                         ListTile(
                 title: const Text(
-                  "Опыт работы",
+                  "Добавьте учебное заведение",
                   style: TextStyle(
                             fontSize: 20,
                             color: Color.fromARGB(255, 88, 87, 91),

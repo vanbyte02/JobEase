@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Communication.dart';
-import 'package:jobease/Employee/CreateVacancy.dart';
+import 'package:jobease/Employee/Profile/CreateVacancy.dart';
 import 'package:jobease/Employee/Profile/Profile.dart';
 import 'package:jobease/Employee/Profile/Setting.dart';
 import 'package:jobease/Employee/Saved.dart';
@@ -77,7 +77,7 @@ class _AccountState extends State<Account> {
                 },
               ),
                Padding(
-              padding: EdgeInsets.only(top: 300),
+              padding: EdgeInsets.only(bottom:20, top: 400),
               child: SizedBox(
                 width: 100,
                 height: 40, 

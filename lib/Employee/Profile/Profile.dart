@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Account.dart';
 import 'package:jobease/Employee/Profile/DataUpdate.dart';
 
-
-
 //Экран профиля
 class Profile extends StatefulWidget {
   const Profile({super.key});
