@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Employee/Communication.dart';
-import 'package:jobease/Employee/Profile/CreateVacancy.dart';
+import 'package:jobease/Employee/Communication/Communication.dart';
+import 'package:jobease/Employee/Profile/CreateResume.dart';
 import 'package:jobease/Employee/Profile/Profile.dart';
 import 'package:jobease/Employee/Profile/Setting.dart';
-import 'package:jobease/Employee/Saved.dart';
-import 'package:jobease/Employee/Vacancy.dart';
+import 'package:jobease/Employee/Vacancy/Saved.dart';
+import 'package:jobease/Employee/Vacancy/SearchVacancy.dart';
 import 'package:jobease/Login/Autorization.dart';
 
 const List<String> vibor = <String>['Активно ищу работу', 'Рассматриваю предложения', 'Предложили работу, пока думаю', 'Не ищу работу'];
@@ -112,7 +112,8 @@ class _AccountState extends State<Account> {
         child: Column(
           children: [ 
             const SizedBox(height: 5),
-            Row(
+          Center(
+            child: Row(
             children: [
             const SizedBox(width: 40),
              Column(
@@ -157,6 +158,7 @@ class _AccountState extends State<Account> {
                 ),
               ],
             ),
+        ),
             const SizedBox(height: 30),
             Container(
               width: 300,
@@ -238,7 +240,7 @@ class _AccountState extends State<Account> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CreateVacancy()
+                  MaterialPageRoute(builder: (context) => CreateResume()
                         ),
                       );   
                     },
@@ -263,7 +265,7 @@ class _AccountState extends State<Account> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Vacancy()),
+                    MaterialPageRoute(builder: (context) => const SearchVacancy()),
                   );
                 },
               ),

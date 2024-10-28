@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Employee/Communication.dart';
-import 'package:jobease/Employee/Account.dart';
-import 'package:jobease/Employee/Saved.dart';
+import 'package:jobease/Employee/Communication/Communication.dart';
+import 'package:jobease/Employee/Profile/Account.dart';
+import 'package:jobease/Employee/Vacancy/Saved.dart';
+import 'package:jobease/Employee/Vacancy/Vacancy.dart';
 
 
 final List<String> entries = <String>['Программист 1C', 'Программист Python', 'Программист C++', 'Программист C#', 'Full-stack разработчик', 'Backend разработчик', 'Frontend разработчик'];
 
-//Экран с вакансиями
-class Vacancy extends StatefulWidget {
+//Экран с поиском вакансиями
+class SearchVacancy extends StatefulWidget {
  
-  const Vacancy({super.key,});
+  const SearchVacancy({super.key,});
 
   @override
-  _VacancyState createState() => _VacancyState();
+  _SearchVacancyState createState() => _SearchVacancyState();
 }
 
-class _VacancyState extends State<Vacancy> {
+class _SearchVacancyState extends State<SearchVacancy> {
   
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class _VacancyState extends State<Vacancy> {
           mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 270,
+                width: 300,
                 height: 40,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 247, 247, 247),
@@ -58,15 +59,6 @@ class _VacancyState extends State<Vacancy> {
                   ),
                 ),
               ),
-              const SizedBox(width: 10),
-              IconButton(
-              icon: const Icon(
-                Icons.tune,
-                color: Colors.black,
-                size: 27,
-                ),
-              onPressed: () {},
-            ),
             ], 
           ),
           const SizedBox(height: 15),
@@ -126,7 +118,13 @@ class _VacancyState extends State<Vacancy> {
                   color: Colors.white,
                     ),
                   ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Vacancy()
+                        ),
+                      );   
+                    },
               ),
             ),
           ),

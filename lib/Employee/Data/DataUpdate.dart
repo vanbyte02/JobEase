@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Employee/Profile/Metro.dart';
-import 'package:jobease/Employee/Profile/Nationality.dart';
+import 'package:jobease/Employee/Data/Metro.dart';
+import 'package:jobease/Employee/Data/Nationality.dart';
+
 
 //Экран с личными данными пользователя
 class DataUpdate extends StatefulWidget {
@@ -10,7 +11,6 @@ class DataUpdate extends StatefulWidget {
   @override
   _DataUpdateState createState() => _DataUpdateState();
 }
-
 String _selectedEducationLevel = ''; 
 String _selectedValue = '';
 
@@ -211,40 +211,8 @@ class _DataUpdateState extends State<DataUpdate > {
           ),
         ),
       ),
-      
-      // bottomNavigationBar: BottomAppBar(
-      //   child: Row(
-      //     mainAxisAlignment: MainAxisAlignment.spaceAround,
-      //     children: <Widget>[
-      //       Container(
-      //       child: SizedBox(
-      //           width: 250,
-      //           height: 40,
-      //         child: ElevatedButton(
-      //           style: ElevatedButton.styleFrom(
-      //             backgroundColor: Colors.green,
-      //             shape: RoundedRectangleBorder(
-      //               borderRadius: BorderRadius.circular(6),
-      //             ),
-      //           ),
-      //          onPressed: () {
-      //           },
-      //           child: const Text(
-      //             'Сохранить',
-      //             style: TextStyle(
-      //               fontSize: 16,
-      //               color: Colors.white,
-      //               ),
-      //             ),
-      //           ),
-      //         ),
-      //       ),
-      //     ],
-      //   ),
-      // )
     );
   }
 }
- 
 
 

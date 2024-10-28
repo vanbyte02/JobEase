@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package/flutter_localizations.dart';
-import 'package:jobease/Employee/Account.dart';
+import 'package:jobease/Employee/Profile/Account.dart';
 import 'package:jobease/Employee/Profile/ResetPassword.dart';
 
 //Экран Настроек

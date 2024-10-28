@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Employee/Communication.dart';
-import 'package:jobease/Employee/Account.dart';
-import 'package:jobease/Employee/Vacancy.dart';
+import 'package:jobease/Employee/Communication/Communication.dart';
+import 'package:jobease/Employee/Profile/Account.dart';
+import 'package:jobease/Employee/Vacancy/SearchVacancy.dart';
 
 //Экран с сохраненными вакансиями
 class Saved extends StatefulWidget {
@@ -99,7 +99,7 @@ class _SavedState extends State<Saved> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Vacancy()
+                  MaterialPageRoute(builder: (context) => const SearchVacancy()
                         ),
                       );   
                     },

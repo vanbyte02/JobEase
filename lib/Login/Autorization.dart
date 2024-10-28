@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Employee/Vacancy.dart';
+import 'package:jobease/Employee/Vacancy/SearchVacancy.dart';
 import 'package:jobease/Login/Registration.dart';
 import 'package:jobease/Login/ResetPassword.dart';
 
@@ -121,7 +121,7 @@ class _AutorizationState extends State<Autorization> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Vacancy()
+                  MaterialPageRoute(builder: (context) => const SearchVacancy()
                         ),
                       );   
                     },

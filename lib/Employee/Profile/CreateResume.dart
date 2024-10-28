@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Employee/Account.dart';
-import 'package:jobease/Employee/Profile/Specializations.dart';
+import 'package:jobease/Employee/Profile/Account.dart';
+import 'package:jobease/Employee/Data/Specializations.dart';
 
 //Экран создания резюме
-class CreateVacancy extends StatefulWidget {
+class CreateResume extends StatefulWidget {
   @override
-  _CreateVacancyState createState() => _CreateVacancyState();
+  _CreateResumeState createState() => _CreateResumeState();
 }
 
-class _CreateVacancyState extends State<CreateVacancy> {
+class _CreateResumeState extends State<CreateResume> {
   final PageController _pageController = PageController();
   int _currentStep = 0;
   String _selectedValue = '';

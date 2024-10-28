@@ -12,12 +12,6 @@ class Description extends StatefulWidget {
 
 class _DescriptionState extends State<Description> {
 
-  List catalog = [
-  Image.asset("lib/assets/images/Определиться.png"),
-  Image.asset("lib/assets/images/Найти.png"),
-  Image.asset("lib/assets/images/Упростить.png"),
-  Image.asset("lib/assets/images/Зарегестрируйся.png")
-];
 
   final PageController _pageController = PageController(initialPage: 0);
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Employee/Account.dart';
-import 'package:jobease/Employee/Saved.dart';
-import 'package:jobease/Employee/Vacancy.dart';
+import 'package:jobease/Employee/Profile/Account.dart';
+import 'package:jobease/Employee/Vacancy/Saved.dart';
+import 'package:jobease/Employee/Vacancy/SearchVacancy.dart';
 
 final List<String> txt = <String>['Работодатель 1', 'Работодатель 2', 'Работодатель 3', 'Работодатель 4', 'Работодатель 5', 'Работодатель 6', 'Работодатель 7', 'Работодатель 8', 'Работодатель 9', 'Работодатель 10',];
 
@@ -91,11 +91,11 @@ class _CommunicationState extends State<Communication> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Vacancy()
+                  MaterialPageRoute(builder: (context) => const SearchVacancy()
                         ),
                       );   
                     },
-            ),
+                  ),
              IconButton(
               icon: const Icon(
                 Icons.turned_in_not,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jobease/Employee/Account.dart';
-import 'package:jobease/Employee/Profile/DataUpdate.dart';
+import 'package:jobease/Employee/Profile/Account.dart';
+import 'package:jobease/Employee/Data/DataUpdate.dart';
 
 //Экран профиля
 class Profile extends StatefulWidget {
@@ -34,7 +34,7 @@ class _ProfileState extends State<Profile> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 20),
+            SizedBox(height: 5),
             Center(
               child: Row(
               children: [
@@ -115,7 +115,7 @@ class _ProfileState extends State<Profile> {
                     const Text(
                         'Фамилия',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 88, 87, 91),
                           ),
                         ),
@@ -129,7 +129,7 @@ class _ProfileState extends State<Profile> {
                       const Text(
                         'Имя',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
@@ -143,7 +143,7 @@ class _ProfileState extends State<Profile> {
                       const Text(
                         'Отчество',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
@@ -157,7 +157,7 @@ class _ProfileState extends State<Profile> {
                       const Text(
                         "Пол: ",
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
@@ -171,7 +171,7 @@ class _ProfileState extends State<Profile> {
                       const Text(
                         'Дата рождения:',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
@@ -185,7 +185,7 @@ class _ProfileState extends State<Profile> {
                       const Text(
                         'Электронная почта: ',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
@@ -199,7 +199,7 @@ class _ProfileState extends State<Profile> {
                       const Text(
                         'Номер телефона:',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
@@ -213,7 +213,7 @@ class _ProfileState extends State<Profile> {
                       const Text(
                         'Город проживания: ',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
@@ -222,7 +222,7 @@ class _ProfileState extends State<Profile> {
                         'Метро: ',
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
@@ -236,7 +236,7 @@ class _ProfileState extends State<Profile> {
                       const Text(
                         'Гражданство:',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           color: Color.fromARGB(255, 88, 87, 91),
                         ),
                       ),
