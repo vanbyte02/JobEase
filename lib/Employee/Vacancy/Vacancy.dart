@@ -48,6 +48,7 @@ class _VacancyState extends State<Vacancy> {
       ),
     ),
        bottomNavigationBar: BottomAppBar(
+        color: const Color.fromARGB(255, 242, 242, 242),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[

@@ -251,6 +251,7 @@ class _AccountState extends State<Account> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
+        color: const Color.fromARGB(255, 242, 242, 242),
         child: Container(
           decoration: const BoxDecoration(
             border: Border(

@@ -34,7 +34,7 @@ class _ProfileState extends State<Profile> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 5),
+            SizedBox(height: 10),
             Center(
               child: Row(
               children: [
@@ -249,8 +249,7 @@ class _ProfileState extends State<Profile> {
                       SizedBox(height: 20),
                   ],
                 )
-),
-
+              ),
           ]
         ),
       ),

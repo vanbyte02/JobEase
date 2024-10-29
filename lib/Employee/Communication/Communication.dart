@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:jobease/Employee/Communication/HRDialog.dart';
 import 'package:jobease/Employee/Profile/Account.dart';
 import 'package:jobease/Employee/Vacancy/Saved.dart';
 import 'package:jobease/Employee/Vacancy/SearchVacancy.dart';
 
 final List<String> txt = <String>['Работодатель 1', 'Работодатель 2', 'Работодатель 3', 'Работодатель 4', 'Работодатель 5', 'Работодатель 6', 'Работодатель 7', 'Работодатель 8', 'Работодатель 9', 'Работодатель 10',];
 
-//Экран общения с работодателем
+//Экран чатов с работодателем
 class Communication extends StatefulWidget {
  
   const Communication({super.key,});
@@ -70,6 +71,7 @@ class _CommunicationState extends State<Communication> {
       )
     ),
     bottomNavigationBar: BottomAppBar(
+      color: const Color.fromARGB(255, 242, 242, 242),
       child: Container(
   decoration: const BoxDecoration(
     border: Border(
@@ -116,7 +118,13 @@ class _CommunicationState extends State<Communication> {
                 color: Colors.black,
                 size: 24,
                 ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HRDialog()
+                        ),
+                      );
+              },
             ),
             IconButton(
               icon: const Icon(
