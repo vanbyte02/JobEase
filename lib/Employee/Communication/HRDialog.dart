@@ -54,7 +54,7 @@ class _HRDialogState extends State<HRDialog> {
           children: <Widget>[
             Container(
             child: SizedBox(
-                width: 335,
+                width: 325,
                 height: 45,
               child: TextField(
                   obscureText: true,
@@ -69,25 +69,29 @@ class _HRDialogState extends State<HRDialog> {
                 ),
               ),
             ),
-            SizedBox(width: 10),
+            SizedBox(width: 5),
             Container(
-            child: SizedBox(
-                width: 45,
+              child: SizedBox(
+                width: 35,
                 height: 45,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.green,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(6),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                     padding: EdgeInsets.zero,
                   ),
-                ),
-               onPressed: () {
-                },
-                child: Icon(
-                  Icons.expand_less_outlined,
-                  color: Colors.white,
-                  size: 30,
-                )
+                  onPressed: () {
+                    
+                  },
+                  child: Center(
+                    child: Icon(
+                      Icons.expand_less_outlined,
+                      color: Colors.white,
+                      size: 30,
+                    ),
+                  ),
                 ),
               ),
             ),

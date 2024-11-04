@@ -49,7 +49,8 @@ class _SearchVacancyState extends State<SearchVacancy> {
                       contentPadding:
                            EdgeInsets.symmetric(
                             vertical: 6, 
-                           horizontal: 10),
+                           horizontal: 10
+                          ),
                       prefixIcon:  Icon(
                         Icons.search
                       ),

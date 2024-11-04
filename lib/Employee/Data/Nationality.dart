@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-//Выбор гражданства
+// Экран выбора гражданства
 class Nationality extends StatefulWidget {
   const Nationality({super.key});
 
@@ -8,10 +8,10 @@ class Nationality extends StatefulWidget {
   _NationalityState createState() => _NationalityState();
 }
 
-bool? isChecked = false;
+String selectedNationality = '';
 
 class _NationalityState extends State<Nationality> {
- @override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
@@ -22,327 +22,66 @@ class _NationalityState extends State<Nationality> {
               children: [
                 const SizedBox(width: 10),
                 IconButton(
-                      icon: const Icon(
-                      Icons.arrow_back_ios, 
-                      size: 20
-                     ),
-                      onPressed: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-            const SizedBox(width: 20),
-              Container(
-                width: 260,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 247, 247, 247),
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
-                      spreadRadius: 3,
-                      blurRadius: 4,
-                    ),
-                  ],
+                  icon: const Icon(Icons.arrow_back_ios, size: 20),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 ),
-                child: const Center(
-                  child: TextField(
-                    decoration: const InputDecoration(
-                      contentPadding:
-                           EdgeInsets.symmetric(
-                            vertical: 6, 
-                           horizontal: 10),
-                      prefixIcon:  Icon(
-                        Icons.search
-                      ),
-                      hintText: 'Поиск...',
-                      border: InputBorder.none,
-                    ),
-                  ),
-                ),
-              ),
-              ]
+                const SizedBox(width: 20),
+              ],
             ),
-            const SizedBox(height: 20),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                         Checkbox(
-                      activeColor: Color.fromARGB(255, 74, 187, 80),
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                    ),
-                        const Text(
-                          'Россия',
-                        style: TextStyle(
-                    fontSize: 12,
-                    color:  Color.fromARGB(255, 88, 87, 91),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                         Checkbox(
-                      activeColor: Color.fromARGB(255, 74, 187, 80),
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                    ),
-                        const Text(
-                          'Беларусь',
-                        style: TextStyle(
-                    fontSize: 12,
-                    color:  Color.fromARGB(255, 88, 87, 91),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                         Checkbox(
-                      activeColor: Color.fromARGB(255, 74, 187, 80),
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                    ),
-                        const Text(
-                          'Казахстан',
-                        style: TextStyle(
-                    fontSize: 12,
-                    color:  Color.fromARGB(255, 88, 87, 91),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                         Checkbox(
-                      activeColor: Color.fromARGB(255, 74, 187, 80),
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                    ),
-                        const Text(
-                          'Узбекистан',
-                        style: TextStyle(
-                    fontSize: 12,
-                    color:  Color.fromARGB(255, 88, 87, 91),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                         Checkbox(
-                      activeColor: Color.fromARGB(255, 74, 187, 80),
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                    ),
-                        const Text(
-                          'Украина',
-                        style: TextStyle(
-                    fontSize: 12,
-                    color:  Color.fromARGB(255, 88, 87, 91),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                         Checkbox(
-                      activeColor: Color.fromARGB(255, 74, 187, 80),
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                    ),
-                        const Text(
-                          'Таджикистан',
-                        style: TextStyle(
-                    fontSize: 12,
-                    color:  Color.fromARGB(255, 88, 87, 91),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                         Checkbox(
-                      activeColor: Color.fromARGB(255, 74, 187, 80),
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                    ),
-                        const Text(
-                          'Армения',
-                        style: TextStyle(
-                    fontSize: 12,
-                    color:  Color.fromARGB(255, 88, 87, 91),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                         Checkbox(
-                      activeColor: Color.fromARGB(255, 74, 187, 80),
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                    ),
-                        const Text(
-                          'Азербайджан',
-                        style: TextStyle(
-                    fontSize: 12,
-                    color:  Color.fromARGB(255, 88, 87, 91),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                         Checkbox(
-                      activeColor: Color.fromARGB(255, 74, 187, 80),
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                    ),
-                        const Text(
-                          'Молдова',
-                        style: TextStyle(
-                    fontSize: 12,
-                    color:  Color.fromARGB(255, 88, 87, 91),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                         Checkbox(
-                      activeColor: Color.fromARGB(255, 74, 187, 80),
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                    ),
-                        const Text(
-                          'Туркменистан',
-                        style: TextStyle(
-                    fontSize: 12,
-                    color:  Color.fromARGB(255, 88, 87, 91),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-            ),
-            Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                         Checkbox(
-                      activeColor: Color.fromARGB(255, 74, 187, 80),
-                      value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = value;
-                        });
-                      },
-                    ),
-                        const Text(
-                          'Другое',
-                        style: TextStyle(
-                    fontSize: 12,
-                    color:  Color.fromARGB(255, 88, 87, 91),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ],
-            ),
-                
+            const SizedBox(height: 30),
+            nationalityCheckbox('Россия'),
+            const SizedBox(height: 10),
+            nationalityCheckbox('Беларусь'),
+            const SizedBox(height: 10),
+            nationalityCheckbox('Казахстан'),
+            const SizedBox(height: 10),
+            nationalityCheckbox('Узбекистан'),
+            const SizedBox(height: 10),
+            nationalityCheckbox('Украина'),
+            const SizedBox(height: 10),
+            nationalityCheckbox('Таджикистан'),
+            const SizedBox(height: 10),
+            nationalityCheckbox('Армения'),
+            const SizedBox(height: 10),
+            nationalityCheckbox('Азербайджан'),
+            const SizedBox(height: 10),
+            nationalityCheckbox('Молдова'),
+            const SizedBox(height: 10),
+            nationalityCheckbox('Туркменистан'),
+            const SizedBox(height: 10),
+            nationalityCheckbox('Другое'),
           ],
         ),
       ),
+    );
+  }
+
+  Widget nationalityCheckbox(String nationality) {
+    return Row(
+      children: [
+        const SizedBox(width: 30),
+        Radio<String>(
+          value: nationality,
+          groupValue: selectedNationality,
+          onChanged: (String? value) {
+            setState(() {
+              selectedNationality = value!;
+              Navigator.pop(context, selectedNationality);
+            });
+          },
+          activeColor: const Color.fromARGB(255, 74, 187, 80),
+        ),
+        const SizedBox(width: 10),
+        Text(
+          nationality,
+          style: const TextStyle(
+            fontSize: 20,
+            color: Colors.black,
+          ),
+        ),
+      ],
     );
   }
 }

@@ -42,7 +42,7 @@ class _AutorizationState extends State<Autorization> {
                   decoration: InputDecoration(
                     labelText: 'Email',
                     border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: BorderRadius.circular(10),
             
                     ),
                   ),
@@ -53,7 +53,7 @@ class _AutorizationState extends State<Autorization> {
                   decoration: InputDecoration(
                     labelText: 'Пароль',
                     border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(10),
                     ),
                     suffixIcon: const Icon(Icons.visibility_off),
                   ),
@@ -108,7 +108,7 @@ class _AutorizationState extends State<Autorization> {
                 style: ElevatedButton.styleFrom(
                       backgroundColor:  const Color.fromARGB(255, 74, 187, 80),
                       shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6), 
+                      borderRadius: BorderRadius.circular(8), 
                     ),
                   ),
                   child: const Text(

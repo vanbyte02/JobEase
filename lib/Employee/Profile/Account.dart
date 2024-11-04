@@ -85,7 +85,7 @@ class _AccountState extends State<Account> {
                 style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
                       shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6), 
+                      borderRadius: BorderRadius.circular(8), 
                     ),
                   ),
                   child: const Text(
@@ -189,7 +189,7 @@ class _AccountState extends State<Account> {
                     height: 70,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 247, 247, 247),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(10),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black.withOpacity(0.1),
@@ -227,7 +227,7 @@ class _AccountState extends State<Account> {
                 style: ElevatedButton.styleFrom(
                       backgroundColor:  const Color.fromARGB(255, 74, 187, 80),
                       shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6), 
+                      borderRadius: BorderRadius.circular(8), 
                     ),
                   ),
                   child: const Text(

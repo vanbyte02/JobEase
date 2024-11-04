@@ -143,7 +143,7 @@ class _ResetPassword2State extends State<ResetPassword2> {
                         ),
                       decoration: InputDecoration(
                         border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                       ),
@@ -165,7 +165,7 @@ class _ResetPassword2State extends State<ResetPassword2> {
                         ),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                       ),
@@ -187,7 +187,7 @@ class _ResetPassword2State extends State<ResetPassword2> {
                         ),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                       ),
@@ -209,7 +209,7 @@ class _ResetPassword2State extends State<ResetPassword2> {
                         ),
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                           ),
                         ),
                       ),
@@ -224,7 +224,7 @@ class _ResetPassword2State extends State<ResetPassword2> {
                 style: ElevatedButton.styleFrom(
                       backgroundColor:  const Color.fromARGB(255, 74, 187, 80),
                       shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6), 
+                      borderRadius: BorderRadius.circular(8), 
                     ),
                   ),
                   child: const Text(
@@ -288,7 +288,7 @@ class _ResetPassword3State extends State<ResetPassword3> {
                   decoration: InputDecoration(
                     labelText: 'Введите пароль',
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                 ),
@@ -297,7 +297,7 @@ class _ResetPassword3State extends State<ResetPassword3> {
                   decoration: InputDecoration(
                     labelText: 'Повторите пароль',
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                 ),
@@ -309,7 +309,7 @@ class _ResetPassword3State extends State<ResetPassword3> {
                 style: ElevatedButton.styleFrom(
                       backgroundColor:  const Color.fromARGB(255, 74, 187, 80),
                       shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6), 
+                      borderRadius: BorderRadius.circular(8), 
                     ),
                   ),
                   child: const Text(

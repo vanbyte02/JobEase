@@ -62,7 +62,7 @@ class _RegOrAutState extends State<RegOrAut> {
                 style: ElevatedButton.styleFrom(
                       backgroundColor: const Color.fromARGB(255, 74, 187, 80),
                       shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6), 
+                      borderRadius: BorderRadius.circular(8), 
                     ),
                   ),
                   child: const Text(
@@ -89,7 +89,7 @@ class _RegOrAutState extends State<RegOrAut> {
                 style: ElevatedButton.styleFrom(
                       backgroundColor: Color.fromARGB(255, 245, 240, 240),
                       shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(6), 
+                      borderRadius: BorderRadius.circular(8), 
                     ),
                   ),
                   child: const Text(

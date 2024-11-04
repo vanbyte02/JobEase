@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-//Выбор специальности
+// Выбор специальности
 Future<List<dynamic>> getSpecializations() async {
   try {
     var response = await http.get(Uri.https("api.hh.ru", "specializations"));
@@ -24,6 +24,10 @@ Future<List<dynamic>> getSpecializations() async {
 }
 
 class Specializations extends StatefulWidget {
+  final Function(String) onSpecializationSelected;
+
+  Specializations({required this.onSpecializationSelected});
+
   @override
   _SpecializationsState createState() => _SpecializationsState();
 }
@@ -134,6 +138,10 @@ class _SpecializationsState extends State<Specializations> {
                     var specialization = filteredSpecializations![index];
                     return ListTile(
                       title: Text(specialization['name']),
+                      onTap: () {
+                        widget.onSpecializationSelected(specialization['name']);
+                        Navigator.pop(context);
+                      },
                     );
                   },
                 ),
