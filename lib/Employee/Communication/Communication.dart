@@ -36,7 +36,7 @@ class _CommunicationState extends State<Communication> {
          Expanded(
           child: ListView.separated(
     padding: const EdgeInsets.all(10),
-    itemCount: entries.length,
+    itemCount: txt.length,
     itemBuilder: (
       BuildContext context, 
       int index
@@ -85,19 +85,20 @@ class _CommunicationState extends State<Communication> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             IconButton(
-              icon: const Icon(
-                Icons.search,
-                color: Colors.black,
-                size: 24,
+                icon: const Icon(
+                  Icons.search,
+                  color: Colors.black,
+                  size: 24,
                 ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SearchVacancy()
-                        ),
-                      );   
-                    },
-                  ),
+                onPressed: () {
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) => SearchVacancy(onSave: addVacancy), // Pass the function
+                  //   ),
+                  // );
+                },
+              ),
              IconButton(
               icon: const Icon(
                 Icons.turned_in_not,

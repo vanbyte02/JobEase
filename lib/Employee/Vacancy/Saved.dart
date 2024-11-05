@@ -11,7 +11,7 @@ class Saved extends StatefulWidget {
   @override
   _SavedState createState() => _SavedState();
 }
-
+final List<String> entries = <String>['Программист 1C', 'Программист Python', 'Программист C++', 'Программист C#', 'Full-stack разработчик', 'Backend разработчик', 'Frontend разработчик'];
 class _SavedState extends State<Saved> {
   
  @override

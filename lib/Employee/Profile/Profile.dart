@@ -20,8 +20,8 @@ UserData userData = UserData(
   email: '',
   phone: '',
   city: '',
-  metroStations: '',
   nationality: '',
+  metroStations: '',
 );
 
 class _ProfileState extends State<Profile> {

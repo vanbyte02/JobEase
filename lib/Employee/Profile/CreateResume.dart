@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jobease/Employee/Data/SpecializationsAPI.dart';
 import 'package:jobease/Employee/Profile/Account.dart';
-import 'package:jobease/Employee/Data/Specializations.dart';
 
-//Экран создания резюме
 class CreateResume extends StatefulWidget {
   @override
   _CreateResumeState createState() => _CreateResumeState();
@@ -13,6 +12,9 @@ class _CreateResumeState extends State<CreateResume> {
   final PageController _pageController = PageController();
   int _currentStep = 0;
   String _selectedValue = '';
+  String _salary = '';
+  List<String> selectedSpecializations = [];
+  List<Map<String, String>> resumeData = [];
 
   void _nextPage() {
     if (_currentStep < 4) {
@@ -24,18 +26,19 @@ class _CreateResumeState extends State<CreateResume> {
         curve: Curves.easeInOut,
       );
     }
-    if(_currentStep == 4) {
-      setState(() {
-        Navigator.push(
-          context,
-            MaterialPageRoute(builder: (context) => Account()
-          ),
-        );
+    if (_currentStep == 4) {
+      resumeData.add({
+        'Specializations': selectedSpecializations.join(', '),
+        'Salary': _salary,
+        'EducationLevel': _selectedValue,
       });
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => Account()),
+      );
     }
   }
-
-    List<String> selectedSpecializations = [];
 
   void _addSpecialization(String specialization) {
     setState(() {
@@ -55,7 +58,6 @@ class _CreateResumeState extends State<CreateResume> {
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
-
             child: LinearProgressIndicator(
               value: _getProgress(),
               backgroundColor: Colors.grey[300],
@@ -82,82 +84,82 @@ class _CreateResumeState extends State<CreateResume> {
                           style: TextStyle(fontSize: 18),
                         ),
                       ),
-                       const SizedBox(height: 20),
-                        if (selectedSpecializations.isNotEmpty) 
-                          ...selectedSpecializations.map((spec) =>
-                          Center( 
-                          child: IntrinsicWidth(
-                            child:  Container(
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 247, 247, 247),
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.1),
-                                    spreadRadius: 3,
-                                    blurRadius: 4,
-                                  ),
-                                ],
-                              ),
-                              child: ListTile(
-                                title: Text(
-                                  spec,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    color: Color.fromARGB(255, 88, 87, 91),
-                                  ),
+                      const SizedBox(height: 20),
+                      if (selectedSpecializations.isNotEmpty)
+                        ...selectedSpecializations.map(
+                          (spec) => Center(
+                            child: IntrinsicWidth(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: const Color.fromARGB(255, 247, 247, 247),
+                                  borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.1),
+                                      spreadRadius: 3,
+                                      blurRadius: 4,
+                                    ),
+                                  ],
                                 ),
-                                onTap: () {
-                                  setState(() {
-                                    selectedSpecializations.remove(spec);
-                                  });
-                                },
+                                child: ListTile(
+                                  title: Text(
+                                    spec,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      color: Color.fromARGB(255, 88, 87, 91),
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    setState(() {
+                                      selectedSpecializations.remove(spec);
+                                    });
+                                  },
+                                ),
                               ),
                             ),
-                          ),
                           ),
                         ),
-                        if (selectedSpecializations.isEmpty)
-                          Center(
-                            child: Container(
-                              width: 300,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 247, 247, 247),
-                                borderRadius: BorderRadius.circular(10),
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(0.1),
-                                    spreadRadius: 3,
-                                    blurRadius: 4,
-                                  ),
-                                ],
-                              ),
-                              child: ListTile(
-                            title: const Text(
-                              "Выберите профессию",
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Color.fromARGB(255, 88, 87, 91),
-                              ),
-                            ),
-                            leading: const Icon(
-                              Icons.control_point,
-                              size: 20,
-                            ),
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Specializations(
-                                    onSpecializationSelected: _addSpecialization,
-                                  ),
+                      if (selectedSpecializations.isEmpty)
+                        Center(
+                          child: Container(
+                            width: 300,
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 247, 247, 247),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  spreadRadius: 3,
+                                  blurRadius: 4,
                                 ),
-                              );
-                            },
+                              ],
+                            ),
+                            child: ListTile(
+                              title: const Text(
+                                "Выберите профессию",
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color.fromARGB(255, 88, 87, 91),
+                                ),
+                              ),
+                              leading: const Icon(
+                                Icons.control_point,
+                                size: 20,
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Specializations(
+                                      onSpecializationSelected: _addSpecialization,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
                           ),
                         ),
-                      ),
                       const SizedBox(height: 70),
                       const Center(
                         child: Text(
@@ -167,24 +169,24 @@ class _CreateResumeState extends State<CreateResume> {
                       ),
                       const SizedBox(height: 20),
                       Center(
-                      child: 
-                      SizedBox(
-                      width: 190,
-                      height: 50,
-                      child: TextFormField(
-                        keyboardType: TextInputType.number,
-                        inputFormatters: [
-                          FilteringTextInputFormatter.digitsOnly,
-                        ],
-                        decoration: InputDecoration(
-                          hintText: 'Сумма в месяц',
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                         style: TextStyle(
-                            fontSize: 18
+                        child: SizedBox(
+                          width: 190,
+                          height: 50,
+                          child: TextFormField(
+                            keyboardType: TextInputType.number,
+                            inputFormatters: [
+                              FilteringTextInputFormatter.digitsOnly,
+                            ],
+                            onChanged: (value) {
+                              _salary = value;
+                            },
+                            decoration: InputDecoration(
+                              hintText: 'Сумма в месяц',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
                             ),
+                            style: const TextStyle(fontSize: 18),
                           ),
                         ),
                       ),
@@ -303,7 +305,6 @@ class _CreateResumeState extends State<CreateResume> {
                                 setState(() {
                                   _selectedValue = value as String;
                                 });
-                               
                               },
                             ),
                           ),
@@ -327,37 +328,33 @@ class _CreateResumeState extends State<CreateResume> {
                 ),
 
                 //3
-                 Padding(
+                Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                         const Text(
-                          "Где вы учились?",
+                      const Text(
+                        "Где вы учились?",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Color.fromARGB(255, 88, 87, 91),
+                        ),
+                      ),
+                      const SizedBox(height: 40),
+                      ListTile(
+                        title: const Text(
+                          "Добавьте учебное заведение",
                           style: TextStyle(
                             fontSize: 20,
                             color: Color.fromARGB(255, 88, 87, 91),
                           ),
                         ),
-                        const SizedBox(height: 40),
-                        ListTile(
-                title: const Text(
-                  "Добавьте учебное заведение",
-                  style: TextStyle(
-                            fontSize: 20,
-                            color: Color.fromARGB(255, 88, 87, 91),
-                           ),
-                          ),
-                        leading: const Icon(
-                          Icons.control_point, 
-                          size: 20
-                          ),
-                        onTap: (){}
-                      ),  
+                        leading: const Icon(Icons.control_point, size: 20),
+                        onTap: () {},
+                      ),
                     ],
                   ),
                 ),
-
 
                 //4
                 Padding(
@@ -365,28 +362,25 @@ class _CreateResumeState extends State<CreateResume> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                         const Text(
+                      const Text(
+                        "Опыт работы",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Color.fromARGB(255, 88, 87, 91),
+                        ),
+                      ),
+                      const SizedBox(height: 30),
+                      ListTile(
+                        title: const Text(
                           "Опыт работы",
                           style: TextStyle(
                             fontSize: 20,
                             color: Color.fromARGB(255, 88, 87, 91),
                           ),
                         ),
-                        const SizedBox(height: 30),
-                        ListTile(
-                    title: const Text(
-                      "Опыт работы",
-                      style: TextStyle(
-                            fontSize: 20,
-                            color: Color.fromARGB(255, 88, 87, 91),
-                           ),
-                          ),
-                        leading: const Icon(
-                          Icons.control_point,
-                          size: 20
-                          ),
-                        onTap: (){}
-                      ),  
+                        leading: const Icon(Icons.control_point, size: 20),
+                        onTap: () {},
+                      ),
                     ],
                   ),
                 ),
@@ -394,7 +388,6 @@ class _CreateResumeState extends State<CreateResume> {
             ),
           ),
 
-       
           Padding(
             padding: const EdgeInsets.all(16),
             child: SizedBox(
@@ -423,6 +416,3 @@ class _CreateResumeState extends State<CreateResume> {
     );
   }
 }
-
-
-
