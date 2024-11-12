@@ -3,143 +3,166 @@ import 'package:jobease/Employee/Communication/Communication.dart';
 import 'package:jobease/Employee/Profile/Account.dart';
 import 'package:jobease/Employee/Vacancy/SearchVacancy.dart';
 
-//Экран с сохраненными вакансиями
+// Экран с сохраненными вакансиями
 class Saved extends StatefulWidget {
- 
-  const Saved({super.key,});
+  final List<String> savedVacancies;
+
+  const Saved({super.key, required this.savedVacancies});
 
   @override
   _SavedState createState() => _SavedState();
 }
-final List<String> entries = <String>['Программист 1C', 'Программист Python', 'Программист C++', 'Программист C#', 'Full-stack разработчик', 'Backend разработчик', 'Frontend разработчик'];
+
 class _SavedState extends State<Saved> {
-  
- @override
+  @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       backgroundColor: const Color.fromARGB(255, 242, 242, 242),
-   body: Center(
-     child: Column(
-      children: [
-      const SizedBox(height: 20),
-          const Text('Избранное',
-                  style: TextStyle(
-                    fontSize: 16, 
-                    color: Color.fromARGB(255, 91, 90, 94),
-                    fontWeight: FontWeight.bold,
-                    ),
-                  ),
-        const SizedBox(height: 10),
-         Expanded(
-          child: ListView.separated(
-    padding: const EdgeInsets.all(10),
-    itemCount: entries.length,
-    itemBuilder: (
-      BuildContext context, 
-      int index
-      ){
-      return Container(
-  decoration: BoxDecoration(
-    color: const Color.fromARGB(255, 247, 247, 247),
-    borderRadius: BorderRadius.circular(10),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.black.withOpacity(0.1),
-        spreadRadius: 3,
-        blurRadius: 4,
-      ),
-    ],
-  ),
-        width: 300,
-        height: 120,
-        child: Stack(
+      body: Center(
+        child: Column(
           children: [
-            Center(
-              child: Text('${entries[index]}'),
+            const SizedBox(height: 20),
+            const Text(
+              'Избранное',
+              style: TextStyle(
+                fontSize: 16, 
+                color: Color.fromARGB(255, 91, 90, 94),
+                fontWeight: FontWeight.bold,
+              ),
             ),
-            Align(
-            alignment: Alignment.topRight,
-            child: IconButton(
-              icon: const Icon(
-                Icons.turned_in,
-                ),
-              onPressed: () {
-              },
-            ),
-          ),
-            ],
-          ),
-        );
-      },
-    separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 20),
-            ),
-          ) 
-        ]
-      )
-    ),
-    bottomNavigationBar: BottomAppBar(
-      color: const Color.fromARGB(255, 242, 242, 242),
-      child: Container(
-  decoration: const BoxDecoration(
-    border: Border(
-      top: BorderSide(
-        color: Colors.grey, 
-        width: 1
-        )
+            const SizedBox(height: 10),
+            Expanded(
+              child: widget.savedVacancies.isEmpty
+                  ? const Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.turned_in_not,
+                          size: 50,
+                          color: Color.fromARGB(255, 91, 90, 94),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          'Нет избранного',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Color.fromARGB(255, 91, 90, 94),
+                          ),
+                        ),
+                      ],
+                    )
+                  : ListView.separated(
+                      padding: const EdgeInsets.all(10),
+                      itemCount: widget.savedVacancies.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(255, 247, 247, 247),
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                spreadRadius: 3,
+                                blurRadius: 4,
+                              ),
+                            ],
+                          ),
+                          width: 300,
+                          height: 120,
+                          child: Stack(
+                            children: [
+                              Center(
+                                child: Text(widget.savedVacancies[index]),
+                              ),
+                              Align(
+                                alignment: Alignment.topRight,
+                                child: IconButton(
+                                  icon: Icon(
+                                    widget.savedVacancies.contains(widget.savedVacancies[index]) 
+                                        ? Icons.turned_in 
+                                        : Icons.turned_in_not,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      if (widget.savedVacancies.contains(widget.savedVacancies[index])) {
+                                        widget.savedVacancies.remove(widget.savedVacancies[index]);
+                                      } else {
+                                        widget.savedVacancies.add(widget.savedVacancies[index]);
+                                      }
+                                    });
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                      separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 20),
+                    ),
+            )
+          ],
         ),
       ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            IconButton(
-              icon: const Icon(
-                Icons.search,
-                color: Colors.black,
-                size: 24,
-                ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SearchVacancy()
-                        ),
-                      );   
-                    },
+      bottomNavigationBar: BottomAppBar(
+        color: const Color.fromARGB(255, 242, 242, 242),
+        child: Container(
+          decoration: const BoxDecoration(
+            border: Border(
+              top: BorderSide(
+                color: Colors.grey, 
+                width: 1,
+              ),
             ),
-             IconButton(
-              icon: const Icon(
-                Icons.turned_in_not,
-                color: Colors.black,
-                size: 24,
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: <Widget>[
+              IconButton(
+                icon: const Icon(
+                  Icons.search,
+                  color: Colors.black,
+                  size: 24,
                 ),
-              onPressed: () {},
-            ),
-            IconButton(
-              icon: const Icon(
-                Icons.question_answer,
-                color: Colors.black,
-                size: 24,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const SearchVacancy()),
+                  );   
+                },
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.turned_in_not,
+                  color: Colors.black,
+                  size: 24,
                 ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Communication()
-                        ),
-                      );   
-                    },
-            ),
-            IconButton(
-              icon: const Icon(
-                Icons.person,
-                color: Colors.black,
-                size: 24,
+                onPressed: () {},
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.question_answer,
+                  color: Colors.black,
+                  size: 24,
                 ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Account()
-                        ),
-                      );   
-                    },
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Communication()),
+                  );   
+                },
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.person,
+                  color: Colors.black,
+                  size: 24,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Account()),
+                  );   
+                },
               ),
             ],
           ),

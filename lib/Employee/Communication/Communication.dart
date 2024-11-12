@@ -108,10 +108,10 @@ class _CommunicationState extends State<Communication> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Saved()
-                        ),
-                      );   
-                    },
+                  MaterialPageRoute(builder: (context) => Saved(savedVacancies: savedVacancies),
+                  )
+                );   
+              },
             ),
             IconButton(
               icon: const Icon(

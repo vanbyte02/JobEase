@@ -19,6 +19,7 @@ class Account extends StatefulWidget {
   _AccountState createState() => _AccountState();
 }
 
+
 class _AccountState extends State<Account> {
   @override
   Widget build(BuildContext context) {
@@ -110,12 +111,13 @@ class _AccountState extends State<Account> {
   backgroundColor: const Color.fromARGB(255, 242, 242, 242),
       body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [ 
             const SizedBox(height: 5),
           Center(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
             children: [
-            const SizedBox(width: 40),
              Column(
                 children: [
                   Container(
@@ -141,7 +143,7 @@ class _AccountState extends State<Account> {
                   )
                 ],
               ),
-              const SizedBox(width: 90),
+              const SizedBox(width: 50),
               Container(
                   width: 105,
                  height: 105,
@@ -161,7 +163,7 @@ class _AccountState extends State<Account> {
         ),
             const SizedBox(height: 30),
             Container(
-              width: 300,
+              width: 320,
               height: 70,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 247, 247, 247),
@@ -275,7 +277,8 @@ class _AccountState extends State<Account> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Saved()),
+                    MaterialPageRoute(builder: (context) => Saved(savedVacancies: savedVacancies),
+                    )
                   );
                 },
               ),

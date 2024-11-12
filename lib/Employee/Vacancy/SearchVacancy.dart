@@ -6,6 +6,10 @@ import 'package:jobease/Employee/Profile/Account.dart';
 import 'package:jobease/Employee/Vacancy/Saved.dart';
 import 'package:jobease/Employee/Vacancy/Vacancy.dart';
 
+
+List<String> savedVacancies = [];
+
+
 Future<List<dynamic>> getVacancies() async {
   try {
     var response = await http.get(Uri.https("api.hh.ru", "vacancies", {"area": "1"})); 
@@ -144,7 +148,6 @@ class _SearchVacancyState extends State<SearchVacancy> {
                   String name = vacancy['name'] ?? '';
                   String salary = vacancy['salary']?['from']?.toString() ?? '';
                   String metro = vacancy['address']?['metro']?['station_name'] ?? 'Метро не указано';
-
                   return InkWell(
                     onTap: () {
                       Navigator.push(
@@ -171,36 +174,46 @@ class _SearchVacancyState extends State<SearchVacancy> {
                       child: Stack(
                         children: [
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              SizedBox(height: 20),
-                              Text(
-                                name,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: Color.fromARGB(255, 91, 90, 94),
-                                  fontWeight: FontWeight.bold,
+                              const SizedBox(height: 25),
+                              Center(
+                                child: ConstrainedBox(
+                                  constraints: const BoxConstraints(
+                                    maxWidth: 290
+                                  ),
+                                  child: Text(
+                                    name,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      fontSize: 19,
+                                      color: Color.fromARGB(255, 91, 90, 94),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
                                 ),
                               ),
-                              SizedBox(height: 5),
-                              Text(
-                                vacancy['salary'] != null && vacancy['salary']['from'] != null
-                                    ? '${vacancy['salary']['from']} руб.' : '',
-  
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Color.fromARGB(255, 91, 90, 94),
-                                ),
-                              ),
-                              SizedBox(height: 5),
-                              Text(
-                                'Москва, $metro',
- 
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Color.fromARGB(255, 91, 90, 94),
-                                ),
-                              ),
-                            ],
+                              const SizedBox(height: 20),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                    Text(
+                                      salary.isNotEmpty ? '$salary руб.' : 'Зарплата не указана',
+                                      style: const TextStyle(
+                                        fontSize: 16,
+                                        color: Color.fromARGB(255, 91, 90, 94),
+                                      ),
+                                    ),
+                                  Text(
+                                    'Москва, $metro',
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      color: Color.fromARGB(255, 91, 90, 94),
+                                    ),
+                                  ),
+                                ],
+                              )
+                                ],
                           ),
                           Align(
                             alignment: Alignment.bottomCenter,
@@ -229,11 +242,20 @@ class _SearchVacancyState extends State<SearchVacancy> {
                               ),
                             ),
                           ),
-                          Align(
+                        Align(
                             alignment: Alignment.topRight,
                             child: IconButton(
-                              icon: const Icon(Icons.turned_in_not),
+                              icon: Icon(
+                                savedVacancies.contains(name) ? Icons.turned_in : Icons.turned_in_not,
+                              ),
                               onPressed: () {
+                                setState(() {
+                                  if (savedVacancies.contains(name)) {
+                                    savedVacancies.remove(name);
+                                  } else {
+                                    savedVacancies.add(name);
+                                  }
+                                });
                               },
                             ),
                           ),
@@ -281,7 +303,7 @@ class _SearchVacancyState extends State<SearchVacancy> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Saved(),
+                      builder: (context) => Saved(savedVacancies: savedVacancies), 
                     ),
                   );
                 },
