@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Profile/Account.dart';
 import 'package:jobease/Employee/Data/DataUpdate.dart';
+import 'package:file_picker/file_picker.dart';
+import 'dart:io';
+import 'package:shared_preferences/shared_preferences.dart';
 
-
-//Экран профиля
+// Экран профиля
 class Profile extends StatefulWidget {
   const Profile({super.key});
 
@@ -25,6 +27,43 @@ UserData userData = UserData(
 );
 
 class _ProfileState extends State<Profile> {
+  File? _imageFile;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadImage(); // Загружаем сохраненное изображение при загрузке экрана
+  }
+
+  // Метод для загрузки изображения из памяти
+  Future<void> _loadImage() async {
+    final prefs = await SharedPreferences.getInstance();
+    final imagePath = prefs.getString('profile_image');
+    if (imagePath != null) {
+      setState(() {
+        _imageFile = File(imagePath);
+      });
+    }
+  }
+
+  // Метод для выбора нового изображения
+  Future<void> _pickImage() async {
+    final result = await FilePicker.platform.pickFiles(
+      type: FileType.image,
+    );
+
+    if (result != null && result.files.single.path != null) {
+      final filePath = result.files.single.path!;
+      setState(() {
+        _imageFile = File(filePath);
+      });
+
+      // Сохраняем путь к изображению в памяти
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('profile_image', filePath);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +100,12 @@ class _ProfileState extends State<Profile> {
                           blurRadius: 4,
                         ),
                       ],
+                      image: _imageFile != null
+                          ? DecorationImage(
+                              image: FileImage(_imageFile!),
+                              fit: BoxFit.cover,
+                            )
+                          : null,
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -89,7 +134,7 @@ class _ProfileState extends State<Profile> {
                                 });
                               }
                             });
-                          }
+                          },
                         ),
                       ),
                       const SizedBox(height: 10),
@@ -105,13 +150,11 @@ class _ProfileState extends State<Profile> {
                             ),
                           ),
                           leading: const Icon(Icons.add_photo_alternate, size: 17),
-                          onTap: () {
-                            //getImages(); 
-                          },
+                          onTap: _pickImage,
                         ),
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
@@ -220,17 +263,17 @@ class _ProfileState extends State<Profile> {
                   ),
                   const SizedBox(height: 20),
                   Text(
-                     userData.city.isNotEmpty ? userData.city : 'Город',
+                    userData.city.isNotEmpty ? userData.city : 'Город',
                     style: const TextStyle(
                       fontSize: 18,
                       color: Color.fromARGB(255, 88, 87, 91),
                     ),
                   ),
                   const SizedBox(height: 5),
-                   Text(
+                  Text(
                     userData.metroStations.isNotEmpty ? 'Метро: ${userData.metroStations}' : 'Станция метро',
                     textAlign: TextAlign.left,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       color: Color.fromARGB(255, 88, 87, 91),
                     ),
@@ -242,9 +285,9 @@ class _ProfileState extends State<Profile> {
                     thickness: 1,
                   ),
                   const SizedBox(height: 20),
-                   Text(
+                  Text(
                     userData.nationality.isNotEmpty ? 'Гражданство: ${userData.nationality}' : 'Гражданство',
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       color: Color.fromARGB(255, 88, 87, 91),
                     ),

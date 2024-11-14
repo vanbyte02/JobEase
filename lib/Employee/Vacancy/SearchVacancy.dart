@@ -10,7 +10,7 @@ import 'package:jobease/Employee/Vacancy/Vacancy.dart';
 List<String> savedVacancies = [];
 final List<String> respondedVacancies = [];
 
-//http://opendata.trudvsem.ru/api/v1/vacancies/region/77
+//http://opendata.trudvsem.ru/api/v1/vacancies/region/77 
 Future<List<dynamic>> getVacancies() async {
   try {
     var response = await http.get(Uri.https("api.hh.ru", "vacancies", {"area": "1"})); 
