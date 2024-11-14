@@ -78,7 +78,7 @@ class _AccountState extends State<Account> {
                 },
               ),
                Padding(
-              padding: EdgeInsets.only(bottom:20, top: 400),
+              padding: EdgeInsets.only(bottom:20, top: 380),
               child: SizedBox(
                 width: 100,
                 height: 40, 

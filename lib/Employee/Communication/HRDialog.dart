@@ -54,10 +54,9 @@ class _HRDialogState extends State<HRDialog> {
           children: <Widget>[
             Container(
             child: SizedBox(
-                width: 325,
+                width: 305,
                 height: 45,
               child: TextField(
-                  obscureText: true,
                   decoration: InputDecoration(  
                     border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),

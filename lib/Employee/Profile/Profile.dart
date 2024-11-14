@@ -3,7 +3,7 @@ import 'package:jobease/Employee/Profile/Account.dart';
 import 'package:jobease/Employee/Data/DataUpdate.dart';
 
 
-// Экран профиля
+//Экран профиля
 class Profile extends StatefulWidget {
   const Profile({super.key});
 

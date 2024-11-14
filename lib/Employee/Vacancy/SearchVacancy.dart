@@ -8,8 +8,9 @@ import 'package:jobease/Employee/Vacancy/Vacancy.dart';
 
 
 List<String> savedVacancies = [];
+final List<String> respondedVacancies = [];
 
-
+//http://opendata.trudvsem.ru/api/v1/vacancies/region/77
 Future<List<dynamic>> getVacancies() async {
   try {
     var response = await http.get(Uri.https("api.hh.ru", "vacancies", {"area": "1"})); 
@@ -150,12 +151,23 @@ class _SearchVacancyState extends State<SearchVacancy> {
                   String metro = vacancy['address']?['metro']?['station_name'] ?? 'Метро не указано';
                   return InkWell(
                     onTap: () {
-                      Navigator.push(
+                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Vacancy(vacancy: vacancy), 
+                          builder: (context) => Vacancy(
+                            vacancy: vacancy,
+                            respondedVacancies: respondedVacancies,
+                          ),
                         ),
-                      );
+                      ).then((updatedList) {
+
+                        if (updatedList != null) {
+                          setState(() {
+                            respondedVacancies.clear();
+                            respondedVacancies.addAll(updatedList);
+                          });
+                        }
+                      });
                     },
                     child: Container(
                       decoration: BoxDecoration(
@@ -216,37 +228,77 @@ class _SearchVacancyState extends State<SearchVacancy> {
                                 ],
                           ),
                           Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Container(
-                              margin: const EdgeInsets.only(bottom: 10),
-                              child: SizedBox(
-                                width: 300,
-                                height: 30,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color.fromARGB(255, 74, 187, 80),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30),
+                          alignment: Alignment.bottomCenter,
+                          child: Container(
+                            margin: const EdgeInsets.only(bottom: 10),
+                            child: SizedBox(
+                              width: 335,
+                              height: 40,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: respondedVacancies.contains(name)
+                                            ? const Color.fromARGB(255, 91, 90, 94)
+                                            : const Color.fromARGB(255, 74, 187, 80),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(30),
+                                        ),
+                                      ),
+                                      child: Text(
+                                        respondedVacancies.contains(name) ? 'Вы откликнулись!' : 'Отозваться',
+                                        style: const TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      onPressed: respondedVacancies.contains(name)
+                                          ? null
+                                          : () {
+                                              setState(() {
+                                                respondedVacancies.add(name);
+                                              });
+                                            },
                                     ),
                                   ),
-                                  child: const Text(
-                                    'Отозваться',
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Colors.white,
+                                  const SizedBox(width: 10),
+                                  if (respondedVacancies.contains(name)) 
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: const Color.fromARGB(255, 74, 187, 80),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(30),
+                                        ),
+                                      ),
+                                      child: const Text(
+                                        'Перейти в чат',
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Communication(),
+                                          ),
+                                        );
+                                      },
                                     ),
-                                  ),
-                                  onPressed: () {
-                                  },
-                                ),
+                                ],
                               ),
                             ),
                           ),
+                        ),
                         Align(
                             alignment: Alignment.topRight,
                             child: IconButton(
                               icon: Icon(
                                 savedVacancies.contains(name) ? Icons.turned_in : Icons.turned_in_not,
+                                color: savedVacancies.contains(name) ? Color.fromARGB(255, 91, 90, 94) : Colors.grey, 
                               ),
                               onPressed: () {
                                 setState(() {
@@ -258,7 +310,7 @@ class _SearchVacancyState extends State<SearchVacancy> {
                                 });
                               },
                             ),
-                          ),
+                          )
                         ],
                       ),
                     ),

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jobease/Employee/Data/EducationalInstitutionAPI.dart';
 import 'package:jobease/Employee/Data/SpecializationsAPI.dart';
 import 'package:jobease/Employee/Profile/Account.dart';
 
+//Экран создания резюме
 class CreateResume extends StatefulWidget {
   @override
   _CreateResumeState createState() => _CreateResumeState();
@@ -350,7 +352,15 @@ class _CreateResumeState extends State<CreateResume> {
                           ),
                         ),
                         leading: const Icon(Icons.control_point, size: 20),
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                                context,
+                                  MaterialPageRoute(
+                                    builder: (context) => EducationalInstitutions(
+                              ),
+                            ),
+                          );
+                        },
                       ),
                     ],
                   ),
@@ -379,7 +389,8 @@ class _CreateResumeState extends State<CreateResume> {
                           ),
                         ),
                         leading: const Icon(Icons.control_point, size: 20),
-                        onTap: () {},
+                        onTap: () {
+                        },
                       ),
                     ],
                   ),
