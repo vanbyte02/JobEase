@@ -3,7 +3,7 @@ import 'package:jobease/Employee/Communication/Communication.dart';
 import 'package:jobease/Employee/Profile/Account.dart';
 import 'package:jobease/Employee/Vacancy/SearchVacancy.dart';
 
-// Экран с сохраненными вакансиями
+//Экран с сохраненными вакансиями
 class Saved extends StatefulWidget {
   final List<String> savedVacancies;
 
@@ -33,17 +33,32 @@ class _SavedState extends State<Saved> {
             const SizedBox(height: 10),
             Expanded(
               child: widget.savedVacancies.isEmpty
-                  ? const Column(
+                  ?  Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.turned_in_not,
-                          size: 50,
-                          color: Color.fromARGB(255, 91, 90, 94),
+                        Container(
+                          width: 120,
+                          height: 120,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color.fromARGB(255, 247, 247, 247),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                spreadRadius: 3,
+                                blurRadius: 4,
+                              ),
+                            ]
+                          ),
+                          child: Icon(
+                            Icons.turned_in_not,
+                              size: 50,
+                                color: Color.fromARGB(255, 91, 90, 94),
+                          ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 15),
                         Text(
-                          'Нет избранного',
+                          'Избранных пока нет',
                           style: TextStyle(
                             fontSize: 18,
                             color: Color.fromARGB(255, 91, 90, 94),

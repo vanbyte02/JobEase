@@ -38,11 +38,11 @@ class _SettingState extends State<Setting> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children:  [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-              Text(
+              const Text(
                     'Настройки',
                     // _locale.languageCode.toUpperCase(),
                       style: TextStyle(
@@ -50,15 +50,15 @@ class _SettingState extends State<Setting> {
                         fontSize: 30,
                     )
                   ),
-                  SizedBox(height: 70),
-                  Text(
+                  const SizedBox(height: 70),
+                  const Text(
                     'Акаунт',
                       style: TextStyle(
                       color: Color.fromARGB(255, 88, 87, 91),
                         fontSize: 24,
                       ),
                   ),
-                  Divider(
+                  const Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                       ),
                       ListTile(
@@ -76,20 +76,20 @@ class _SettingState extends State<Setting> {
                         onTap: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => ResetPassword()
+                            MaterialPageRoute(builder: (context) => const ResetPassword()
                                   ),
                                 );   
                               },
                       ), 
-                      SizedBox(height: 30), 
-                       Text(
+                     const SizedBox(height: 30), 
+                      const Text(
                     'Системные',
                       style: TextStyle(
                       color: Color.fromARGB(255, 88, 87, 91),
                         fontSize: 24,
                       ),
                   ),
-                  Divider(
+                 const Divider(
                         color: Color.fromARGB(255, 88, 87, 91),
                       ),
                       ListTile(
@@ -107,11 +107,11 @@ class _SettingState extends State<Setting> {
                         onTap: (){
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Language()
-                                  ),
-                                );   
-                              },
-                            ), 
+                            MaterialPageRoute(builder: (context) => const Language()
+                         ),
+                       );   
+                     },
+                  ), 
                 ],
               )
             ),   
@@ -156,12 +156,12 @@ class _LanguageState extends State<Language> {
             backgroundColor: const Color.fromARGB(255, 242, 242, 242),
                 body: Column(
                   children: [
-                    SizedBox(height: 150),
+                    const SizedBox(height: 150),
                      Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Radio(
-                              activeColor: Color.fromARGB(255, 74, 187, 80),
+                              activeColor:const  Color.fromARGB(255, 74, 187, 80),
                               value: 'Русский',
                               groupValue: _selectedValue,
                               onChanged: (value) {
@@ -178,12 +178,12 @@ class _LanguageState extends State<Language> {
                         ),
                       ],
                      ),
-                     SizedBox(height: 20),
+                     const SizedBox(height: 20),
                      Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Radio(
-                              activeColor: Color.fromARGB(255, 74, 187, 80),
+                              activeColor:const  Color.fromARGB(255, 74, 187, 80),
                               value: 'Английский',
                               groupValue: _selectedValue,
                               onChanged: (value) {

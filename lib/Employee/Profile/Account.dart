@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Communication/Communication.dart';
 import 'package:jobease/Employee/Profile/CreateResume.dart';
 import 'package:jobease/Employee/Profile/Profile.dart';
+import 'package:jobease/Employee/Profile/Resume.dart';
 import 'package:jobease/Employee/Profile/Setting.dart';
 import 'package:jobease/Employee/Vacancy/Saved.dart';
 import 'package:jobease/Employee/Vacancy/SearchVacancy.dart';
 import 'package:jobease/Login/Autorization.dart';
+
+
 
 const List<String> vibor = <String>['Активно ищу работу', 'Рассматриваю предложения', 'Предложили работу, пока думаю', 'Не ищу работу'];
 final List<String> entries1 = <String>['Программист 1C', 'Frontend-разработчик', 'backend-разработчик'];
@@ -18,7 +21,6 @@ class Account extends StatefulWidget {
   @override
   _AccountState createState() => _AccountState();
 }
-
 
 class _AccountState extends State<Account> {
   @override
@@ -112,55 +114,7 @@ class _AccountState extends State<Account> {
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: [ 
-            const SizedBox(height: 5),
-          Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-             Column(
-                children: [
-                  Container(
-              child: const Text(
-                "Имя",
-                  textAlign: TextAlign.right,
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 88, 87, 91),
-                      fontSize: 20,
-                  )
-                )
-              ),
-              const SizedBox(height: 25),
-                Container(
-                child: const Text(
-                  "Фамилия",
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 88, 87, 91),
-                        fontSize: 20,                       
-                      )
-                    )
-                  )
-                ],
-              ),
-              const SizedBox(width: 50),
-              Container(
-                  width: 105,
-                 height: 105,
-                  decoration:  BoxDecoration(
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    spreadRadius: 3,
-                    blurRadius: 4,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-        ),
+          children: [
             const SizedBox(height: 30),
             Container(
               width: 320,
@@ -213,6 +167,12 @@ class _AccountState extends State<Account> {
                         IconButton(
                           icon: const Icon(Icons.arrow_forward_ios),
                           onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Resume(),
+                              ),
+                            );
                           },
                         ),
                       ],

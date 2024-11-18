@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:jobease/Employee/Communication/Communication.dart';
+import 'package:jobease/Employee/Communication/HRDialog.dart';
 import 'package:jobease/Employee/Profile/Account.dart';
 import 'package:jobease/Employee/Vacancy/Saved.dart';
 import 'package:jobease/Employee/Vacancy/Vacancy.dart';
@@ -25,7 +26,7 @@ Future<List<dynamic>> getVacancies() async {
   }
 }
 
-// Экран с поиском вакансий
+//Экран с поиском вакансий
 class SearchVacancy extends StatefulWidget {
   const SearchVacancy({super.key});
 
@@ -283,7 +284,7 @@ class _SearchVacancyState extends State<SearchVacancy> {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => Communication(),
+                                            builder: (context) => const HRDialog(),
                                           ),
                                         );
                                       },

@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-// Выбор специальности
 Future<List<dynamic>> getSpecializations() async {
   try {
     var response = await http.get(Uri.https("api.hh.ru", "specializations"));
@@ -23,6 +22,7 @@ Future<List<dynamic>> getSpecializations() async {
   }
 }
 
+//Экран выбора специальности
 class Specializations extends StatefulWidget {
   final Function(String) onSpecializationSelected;
 

@@ -33,7 +33,7 @@ class UserData {
 
 
 
-//Экран с личными данными пользователя
+//Экран с обновлениями личных данных пользователя
 class DataUpdate extends StatefulWidget {
   const DataUpdate({super.key});
 

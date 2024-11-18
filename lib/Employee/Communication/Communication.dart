@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:jobease/Employee/Profile/Account.dart';
 import 'package:jobease/Employee/Vacancy/Saved.dart';
 import 'package:jobease/Employee/Vacancy/SearchVacancy.dart';
+import 'package:jobease/Employee/Communication/HRDialog.dart';
 
-//Экран чатов с работодателем
+//Экран чата с работодателями
 class Communication extends StatefulWidget {
   const Communication({super.key});
 
@@ -44,22 +45,33 @@ class _CommunicationState extends State<Communication> {
                       padding: const EdgeInsets.all(10),
                       itemCount: respondedVacancies.length,
                       itemBuilder: (BuildContext context, int index) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 247, 247, 247),
-                            borderRadius: BorderRadius.circular(10),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
-                                spreadRadius: 3,
-                                blurRadius: 4,
+                        return GestureDetector(
+                          onTap: () {
+                            // Переход на экран HRDialog
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const HRDialog(),
                               ),
-                            ],
-                          ),
-                          width: 300,
-                          height: 70,
-                          child: Center(
-                            child: Text(respondedVacancies[index]),
+                            );
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(255, 247, 247, 247),
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  spreadRadius: 3,
+                                  blurRadius: 4,
+                                ),
+                              ],
+                            ),
+                            width: 300,
+                            height: 70,
+                            child: Center(
+                              child: Text(respondedVacancies[index]),
+                            ),
                           ),
                         );
                       },
@@ -93,8 +105,9 @@ class _CommunicationState extends State<Communication> {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const SearchVacancy()),
-                  );   
+                    MaterialPageRoute(
+                        builder: (context) => const SearchVacancy()),
+                  );
                 },
               ),
               IconButton(

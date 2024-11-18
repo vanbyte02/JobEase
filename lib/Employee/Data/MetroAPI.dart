@@ -75,7 +75,7 @@ class _MetroState extends State<Metro> {
   }
 
   void _selectStation(String stationName) {
-    Navigator.pop(context, stationName); // Возвращаем выбранную станцию
+    Navigator.pop(context, stationName);
   }
 
   @override

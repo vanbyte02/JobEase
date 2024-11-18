@@ -32,10 +32,10 @@ class _ProfileState extends State<Profile> {
   @override
   void initState() {
     super.initState();
-    _loadImage(); // Загружаем сохраненное изображение при загрузке экрана
+    _loadImage(); 
   }
 
-  // Метод для загрузки изображения из памяти
+
   Future<void> _loadImage() async {
     final prefs = await SharedPreferences.getInstance();
     final imagePath = prefs.getString('profile_image');
@@ -46,7 +46,7 @@ class _ProfileState extends State<Profile> {
     }
   }
 
-  // Метод для выбора нового изображения
+
   Future<void> _pickImage() async {
     final result = await FilePicker.platform.pickFiles(
       type: FileType.image,
@@ -58,7 +58,6 @@ class _ProfileState extends State<Profile> {
         _imageFile = File(filePath);
       });
 
-      // Сохраняем путь к изображению в памяти
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString('profile_image', filePath);
     }

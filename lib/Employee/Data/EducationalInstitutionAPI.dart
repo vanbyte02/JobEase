@@ -2,23 +2,22 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-//Выбор учеьного заведения
+
 Future<List<dynamic>> getEducationalInstitutions() async {
   try {
     var response = await http.get(Uri.https("api.hh.ru", "educational_institutions"));
     if (response.statusCode == 200) {
       var jsonData = jsonDecode(response.body);
-      return jsonData['items']
-          .map((institution) => institution)
-          .toList();
+      return jsonData['items'] ?? [];
     } else {
-      throw Exception('Failed to load data: ${response.statusCode}');
+      throw Exception('Не удалось загрузить данные: ${response.statusCode}');
     }
   } catch (error) {
-    throw Exception('Error: $error');
+    throw Exception('Ошибка при загрузке данных: $error');
   }
 }
 
+//Экран выбора учебного заведения
 class EducationalInstitutions extends StatefulWidget {
   @override
   _EducationalInstitutionsState createState() => _EducationalInstitutionsState();
@@ -27,7 +26,7 @@ class EducationalInstitutions extends StatefulWidget {
 class _EducationalInstitutionsState extends State<EducationalInstitutions> {
   List<dynamic>? institutions;
   List<dynamic>? filteredInstitutions;
-  bool isLoading = false;
+  bool isLoading = true;
   String errorMessage = '';
   String searchQuery = '';
 
@@ -52,12 +51,6 @@ class _EducationalInstitutionsState extends State<EducationalInstitutions> {
     }
   }
 
-  @override
-  void initState() {
-    super.initState();
-    _fetchInstitutions();
-  }
-
   void _filterInstitutions(String query) {
     setState(() {
       searchQuery = query;
@@ -73,12 +66,22 @@ class _EducationalInstitutionsState extends State<EducationalInstitutions> {
   }
 
   void _selectInstitution(String institutionName) {
-    Navigator.pop(context, institutionName); // Return selected institution
+    Navigator.pop(context, institutionName);
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchInstitutions();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Учебные заведения"),
+        backgroundColor: const Color.fromARGB(255, 242, 242, 242),
+      ),
       body: Center(
         child: Column(
           children: [
@@ -89,7 +92,7 @@ class _EducationalInstitutionsState extends State<EducationalInstitutions> {
                 IconButton(
                   icon: const Icon(Icons.arrow_back_ios, size: 20),
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.pop(context); 
                   },
                 ),
                 const SizedBox(width: 20),
@@ -107,15 +110,13 @@ class _EducationalInstitutionsState extends State<EducationalInstitutions> {
                       ),
                     ],
                   ),
-                  child: Center(
-                    child: TextField(
-                      onChanged: _filterInstitutions,
-                      decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(vertical: 6, horizontal: 10),
-                        prefixIcon: Icon(Icons.search),
-                        hintText: 'Поиск...',
-                        border: InputBorder.none,
-                      ),
+                  child: TextField(
+                    onChanged: _filterInstitutions,
+                    decoration: const InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+                      prefixIcon: Icon(Icons.search),
+                      hintText: 'Поиск...',
+                      border: InputBorder.none,
                     ),
                   ),
                 ),
@@ -133,7 +134,7 @@ class _EducationalInstitutionsState extends State<EducationalInstitutions> {
                     var institution = filteredInstitutions![index];
                     return ListTile(
                       title: Text(institution['name']),
-                      onTap: () => _selectInstitution(institution['name']), 
+                      onTap: () => _selectInstitution(institution['name']),
                     );
                   },
                 ),
